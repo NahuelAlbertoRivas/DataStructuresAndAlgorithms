@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1716664216 source:c:\users\admin\n\unlam\ayed\commontestunit\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1708048253 source:c:\users\admin\n\unlam\ayed\arbolverify\arbol.c
+	"arbol.h"
+
+1708028557 c:\users\admin\n\unlam\ayed\arbolverify\arbol.h
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+

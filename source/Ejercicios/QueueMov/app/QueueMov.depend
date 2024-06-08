@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1713046534 source:c:\users\admin\n\unlam\ayed\coladinamica\cola.c
+	"cola.h"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+
+1584205420 source:c:\users\admin\n\unlam\ayed\ejercicios\queuemov\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1712960846 c:\users\admin\n\unlam\ayed\coladinamica\cola.h
+
+1713059159 source:c:\users\admin\n\unlam\ayed\ejercicios\queuemov\dev\dev.c
+	"dev.h"
+
+1713113383 source:c:\users\admin\n\unlam\ayed\ejercicios\queuemov\app\main.c
+	"../dev/dev.h"
+	"../testUnit/testUnit.h"
+
+1713040739 c:\users\admin\n\unlam\ayed\ejercicios\queuemov\dev\dev.h
+	"../../../colaDinamica/cola.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1712984608 source:c:\users\admin\n\unlam\ayed\ejercicios\queuemov\dev\utilities.c
+	"utilities.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1713031366 c:\users\admin\n\unlam\ayed\ejercicios\queuemov\dev\utilities.h
+	"../../../colaDinamica/cola.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1713113225 source:c:\users\admin\n\unlam\ayed\ejercicios\queuemov\testunit\testunit.c
+	"testUnit.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1713035538 c:\users\admin\n\unlam\ayed\ejercicios\queuemov\testunit\testunit.h
+

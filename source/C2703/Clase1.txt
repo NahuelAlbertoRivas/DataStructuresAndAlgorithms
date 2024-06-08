@@ -1,0 +1,12 @@
+Estructura de datos
+	conj. de datos organizados, teniendo relacion de como se almacena
+	cómo se majea y que relacion hay entre distintos elementos de una coleccion de datos (mismo o distinto tipo)
+	tiene un comportamiento definido
+	por ejemplo 
+
+TDA
+	como lo implemento y armo como unidad 
+	es una forma de implementar armo
+	"tiene que ver con cómo se mueve la colección de datos"
+
+struct no tiene nada que ver con estructuras de datos

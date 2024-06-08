@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1714440278 source:c:\users\admin\n\unlam\ayed\ejercicios\clase4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"../../lista/lista.h"
+
+1714440143 source:c:\users\admin\n\unlam\ayed\lista\lista.c
+	"lista.h"
+
+1714440143 c:\users\admin\n\unlam\ayed\lista\lista.h
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+

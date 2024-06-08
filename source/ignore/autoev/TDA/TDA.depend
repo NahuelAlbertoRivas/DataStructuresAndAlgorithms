@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1711605655 source:c:\users\admin\n\unlam\ayed\autoev\tda\main.c
+	<stdio.h>
+	<stdlib.h>
+	"..\source\dev.h"
+
+1711520021 c:\users\admin\n\unlam\ayed\autoev\source\dev.h
+
+1711605795 source:c:\users\admin\n\unlam\ayed\autoev\source\dev.c
+	"dev.h"
+	<stdlib.h>
+

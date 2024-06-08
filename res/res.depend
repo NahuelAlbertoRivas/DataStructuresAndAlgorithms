@@ -1,0 +1,111 @@
+# depslib dependency file v1.0
+1717821246 source:c:\users\admin\n\unlam\ayed\res\main.c
+	"imports.h"
+
+1717806572 c:\users\admin\n\unlam\ayed\res\imports.h
+	"../source/menuDisplay/disp.h"
+
+1717814799 source:c:\users\admin\n\unlam\ayed\source\menudisplay\disp.c
+	"disp.h"
+
+1717821309 c:\users\admin\n\unlam\ayed\source\menudisplay\disp.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<windows.h>
+	<string.h>
+	<conio.h>
+	<time.h>
+	<unistd.h>
+	<locale.h>
+	"../menuCustom/menuCustom.h"
+	"../Ejercicios/Ejercicio_3_5/exports.h"
+	"../Ejercicios/impuestosVencidos/exports.h"
+
+1717739573 source:c:\users\admin\n\unlam\ayed\source\lista\lista.c
+	"lista.h"
+
+1707973758 c:\users\admin\n\unlam\ayed\source\lista\lista.h
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<stdbool.h>
+
+1717739212 c:\users\admin\n\unlam\ayed\source\menucustom\menucustom.h
+	"../strValidators/strValidators.h"
+	"../lista/lista.h"
+	<locale.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<winsock2.h>
+	<winsock.h>
+	<windows.h>
+	<conio.h>
+
+1707859080 c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.h
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1717818939 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.c
+	"impuestosVencidos.h"
+
+1717822588 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.h
+	"../../arbolBinBusq/arbol.h"
+	"../../strValidators/strValidators.h"
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+
+1717819565 source:c:\users\admin\n\unlam\ayed\source\arbolbinbusq\arbol.c
+	"arbol.h"
+
+1717819565 c:\users\admin\n\unlam\ayed\source\arbolbinbusq\arbol.h
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+	<math.h>
+
+1707595783 source:c:\users\admin\n\unlam\ayed\source\coladinamica\cola.c
+	"cola.h"
+	<stdio.h>
+	"../../productos/productos.h"
+	"../../lineasDeTexto/lineasTexto.h"
+	"../../colaDinamica/cola.h"
+	"main.h"
+
+1707011042 c:\users\admin\n\unlam\ayed\source\coladinamica\cola.h
+	<stdlib.h>
+	<string.h>
+
+1717808771 source:c:\users\admin\n\unlam\ayed\source\ejercicios\ejercicio_3_5\funciones.c
+	<stdlib.h>
+	<stdio.h>
+	"funciones.h"
+
+1717808143 c:\users\admin\n\unlam\ayed\source\ejercicios\ejercicio_3_5\funciones.h
+	"../../colaDinamica/cola.h"
+
+1717809231 source:c:\users\admin\n\unlam\ayed\source\ejercicios\ejercicio_3_5\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<conio.h>
+	"funciones.h"
+	"exports.h"
+
+1717808596 c:\users\admin\n\unlam\ayed\source\ejercicios\ejercicio_3_5\exports.h
+
+1717821994 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\main.c
+	"impuestosVencidos.h"
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	<conio.h>
+
+1717815129 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\exports.h
+
+1707859132 source:c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.c
+	"strValidators.h"
+

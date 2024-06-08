@@ -1,0 +1,14 @@
+  C e x1 20
+c s x8       29
+  g   s   x1    15    
+h s x3 1
+h s x2 2
+h s x1 3
+i e x7 2
+i e x3 1
+i e x6 1
+i e x1 5
+i     e    x3     10
+i|e|x4|10
+i                    e x7 10
+                                               i e x2 10

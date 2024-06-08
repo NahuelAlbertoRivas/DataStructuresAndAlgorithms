@@ -1,0 +1,20 @@
+' Lectura correcta ': al menos se pudo recuperar info. para los campos "codProd" y "cantMovimientos"
+
+1) Hay contenido, lectura correcta y
+	a) codProd iguales
+		-> acumulo
+	b) codProd distintos
+		-> saco, informo y reseteo
+
+2) Hay contenido pero lectura incorrecta
+	-> trato de leer nuevamente, y si:
+		a) hay más contenido, pero persisten las lecturas inconsistentes
+			-> sigo leyendo
+		b) no hay más contenido
+			-> saco, informo y me voy
+
+3) Sin contenido y colaNoVacía
+	-> saco, informo y me voy
+
+4) Sin contenido y colaVacía
+	-> me voy

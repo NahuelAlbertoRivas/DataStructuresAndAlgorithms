@@ -1,0 +1,26 @@
+a    e      x7        45
+a s x2 945656   
+a s x2 10
+b e x1 54
+ b  s   x90            5
+  C e x1 20
+c s x8       29
+d s x5 50
+e S x3 5345135415354353453453445155434353645
+e s x8 10
+E S X9 30
+f s x5 40
+f e x2 20
+f s x3 50
+  g   s   x1    15    
+h s x3 1
+h s x2 2
+h s x1 3
+i e x7 2
+i e x3 1
+i e x6 1
+i e x1 5
+i     e    x3     10
+i|e|x4|10
+i                    e x7 10
+                                               i e x2 10
