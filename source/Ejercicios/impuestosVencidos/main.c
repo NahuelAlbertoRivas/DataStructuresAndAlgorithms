@@ -1,12 +1,13 @@
 #include "impuestosVencidos.h"
+#include "lotePrueba/lotePrueba.h"
 #include <winsock2.h>
 #include <windows.h>
 #include <unistd.h>
 #include <conio.h>
 
 #define TAM_OP 2
-#define SRC_PATH "impuestosVencidos.dat"
-#define RES_PATH "deuda.txt"
+#define SRC_PATH "../source/Ejercicios/impuestosVencidos/files/impuestosVencidos.dat"
+#define RES_PATH "../source/Ejercicios/impuestosVencidos/files/deuda.txt"
 
 int impVencidos(void *recursos)
 {
@@ -19,11 +20,10 @@ int impVencidos(void *recursos)
         fflush(stdin);
         if(!strcmpi(op, "a") || !strcmpi(op, "b"))
         {
-            printf("\nOperamos");
-            sleep(2);
-            system("cls");
+            crearLoteImpVencidos();
+            procesarArchivoImpVencidos(SRC_PATH, op, RES_PATH);
         }
-        else
+        else if(strcmpi(op, "f"))
         {
             printf("\nPor favor, revisa la entrada y selecciona una opcion existente");
             sleep(2);

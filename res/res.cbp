@@ -11,7 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters='&quot;config.txt&quot;' />
+				<Option parameters='&quot;byo.txt&quot;' />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
@@ -21,7 +21,7 @@
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters='&quot;config.txt&quot;' />
+				<Option parameters='&quot;byo.txt&quot;' />
 				<Compiler>
 					<Add option="-O2" />
 				</Compiler>
@@ -37,10 +37,34 @@
 			<Add library="../source/menuCustom/libMenuCustom.a" />
 			<Add library="../source/strValidators/libStrValidators.a" />
 		</Linker>
+		<Unit filename="../source/Ejercicios/Ejercicio_3_5/exports.h" />
+		<Unit filename="../source/Ejercicios/Ejercicio_3_5/funciones.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/Ejercicio_3_5/funciones.h" />
+		<Unit filename="../source/Ejercicios/Ejercicio_3_5/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/impuestosVencidos/exports.h" />
 		<Unit filename="../source/Ejercicios/impuestosVencidos/impuestosVencidos.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../source/Ejercicios/impuestosVencidos/impuestosVencidos.h" />
+		<Unit filename="../source/Ejercicios/impuestosVencidos/lotePrueba/lotePrueba.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/impuestosVencidos/lotePrueba/lotePrueba.h" />
+		<Unit filename="../source/Ejercicios/impuestosVencidos/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/arbolBinBusq/arbol.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/arbolBinBusq/arbol.h" />
+		<Unit filename="../source/colaDinamica/cola.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/colaDinamica/cola.h" />
 		<Unit filename="../source/lista/lista.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -50,6 +74,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../source/menuDisplay/disp.h" />
+		<Unit filename="../source/strValidators/strValidators.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/strValidators/strValidators.h" />
 		<Unit filename="imports.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />

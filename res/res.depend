@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1717821246 source:c:\users\admin\n\unlam\ayed\res\main.c
+1717831815 source:c:\users\admin\n\unlam\ayed\res\main.c
 	"imports.h"
 
 1717806572 c:\users\admin\n\unlam\ayed\res\imports.h
@@ -48,10 +48,11 @@
 	<string.h>
 	<stdlib.h>
 
-1717818939 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.c
+1717834406 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.c
 	"impuestosVencidos.h"
+	<conio.h>
 
-1717822588 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.h
+1717832653 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.h
 	"../../arbolBinBusq/arbol.h"
 	"../../strValidators/strValidators.h"
 	<winsock2.h>
@@ -97,8 +98,9 @@
 
 1717808596 c:\users\admin\n\unlam\ayed\source\ejercicios\ejercicio_3_5\exports.h
 
-1717821994 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\main.c
+1717834499 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\main.c
 	"impuestosVencidos.h"
+	"lotePrueba/lotePrueba.h"
 	<winsock2.h>
 	<windows.h>
 	<unistd.h>
@@ -108,4 +110,31 @@
 
 1707859132 source:c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.c
 	"strValidators.h"
+
+1707599642 source:c:\users\admin\n\unlam\ayed\source\colaenlistacircular\cola.c
+	"cola.h"
+
+1707631226 c:\users\admin\n\unlam\ayed\source\colaenlistacircular\cola.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1708355152 source:c:\users\admin\n\unlam\ayed\source\colaestatica\cola.c
+	"cola.h"
+
+1708350136 c:\users\admin\n\unlam\ayed\source\colaestatica\cola.h
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+
+1717833990 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\loteprueba\loteprueba.c
+	"lotePrueba.h"
+	"../impuestosVencidos.h"
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	<stdio.h>
+	<stdlib.h>
+
+1717831688 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\loteprueba\loteprueba.h
 
