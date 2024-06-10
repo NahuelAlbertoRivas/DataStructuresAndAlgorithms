@@ -139,25 +139,31 @@
 
 1717831688 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\loteprueba\loteprueba.h
 
-1717904722 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\locmayorsup.c
+1717994241 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\locmayorsup.c
 	"locMayorSup.h"
 
-1717979043 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\main.c
+1717993637 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\main.c
 	"locMayorSup.h"
 	"../../strValidators/strValidators.h"
+	"lotePrueba/lotePrueba.h"
 
 1717903307 c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\exports.h
 
-1717904413 c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\locmayorsup.h
+1717990788 c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\locmayorsup.h
 	"../../lista/lista.h"
 	<winsock2.h>
 	<windows.h>
 	<unistd.h>
 	<conio.h>
 
-1717904127 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\loteprueba\loteprueba.c
+1717994225 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\loteprueba\loteprueba.c
 	"lotePrueba.h"
 	"../locMayorSup.h"
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	<stdio.h>
+	<stdlib.h>
 
-1717904086 c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\loteprueba\loteprueba.h
+1717989573 c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\loteprueba\loteprueba.h
 
