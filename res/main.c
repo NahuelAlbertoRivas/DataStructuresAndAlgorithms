@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    impVencidos(NULL);
+    locMayorSup(NULL);
 
 //    Accion *tareas = malloc(sizeof(Accion) * CANT_OPS);
 //    char bufferMenu[MAX_LINEA_MENU];

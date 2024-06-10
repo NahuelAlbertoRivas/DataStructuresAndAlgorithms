@@ -57,6 +57,18 @@
 		<Unit filename="../source/Ejercicios/impuestosVencidos/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../source/Ejercicios/localidadesMayorSuperficie/exports.h" />
+		<Unit filename="../source/Ejercicios/localidadesMayorSuperficie/locMayorSup.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/localidadesMayorSuperficie/locMayorSup.h" />
+		<Unit filename="../source/Ejercicios/localidadesMayorSuperficie/lotePrueba/lotePrueba.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/localidadesMayorSuperficie/lotePrueba/lotePrueba.h" />
+		<Unit filename="../source/Ejercicios/localidadesMayorSuperficie/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../source/arbolBinBusq/arbol.c">
 			<Option compilerVar="CC" />
 		</Unit>

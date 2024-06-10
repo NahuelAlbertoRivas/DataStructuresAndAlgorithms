@@ -1,7 +1,7 @@
 #include "disp.h"
 #define B 1
 #define MST_OPS ("mst_ops.txt")
-#define CANT_OPS 2
+#define CANT_OPS 3
 
 int byo(void *recurso)
 {
@@ -19,8 +19,9 @@ int byo(void *recurso)
         return -1;
     }
 
-    tareas[0] = mostrarOpciones;
-    tareas[1] = p3_5;
+    tareas[0] = p3_5;
+    tareas[1] = impVencidos;
+    tareas[2] = locMayorSup;
 
     printf("Hola!");
     sleep(3);

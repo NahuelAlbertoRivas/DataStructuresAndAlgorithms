@@ -1,14 +1,14 @@
 # depslib dependency file v1.0
-1717831815 source:c:\users\admin\n\unlam\ayed\res\main.c
+1717903351 source:c:\users\admin\n\unlam\ayed\res\main.c
 	"imports.h"
 
 1717806572 c:\users\admin\n\unlam\ayed\res\imports.h
 	"../source/menuDisplay/disp.h"
 
-1717814799 source:c:\users\admin\n\unlam\ayed\source\menudisplay\disp.c
+1717903616 source:c:\users\admin\n\unlam\ayed\source\menudisplay\disp.c
 	"disp.h"
 
-1717821309 c:\users\admin\n\unlam\ayed\source\menudisplay\disp.h
+1717903532 c:\users\admin\n\unlam\ayed\source\menudisplay\disp.h
 	<stdio.h>
 	<stdlib.h>
 	<winsock2.h>
@@ -21,11 +21,12 @@
 	"../menuCustom/menuCustom.h"
 	"../Ejercicios/Ejercicio_3_5/exports.h"
 	"../Ejercicios/impuestosVencidos/exports.h"
+	"../Ejercicios/localidadesMayorSuperficie/exports.h"
 
-1717739573 source:c:\users\admin\n\unlam\ayed\source\lista\lista.c
+1717978835 source:c:\users\admin\n\unlam\ayed\source\lista\lista.c
 	"lista.h"
 
-1707973758 c:\users\admin\n\unlam\ayed\source\lista\lista.h
+1717911203 c:\users\admin\n\unlam\ayed\source\lista\lista.h
 	<stdlib.h>
 	<string.h>
 	<stdio.h>
@@ -48,13 +49,13 @@
 	<string.h>
 	<stdlib.h>
 
-1717834406 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.c
+1717902918 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.c
 	"impuestosVencidos.h"
+	"../../strValidators/strValidators.h"
 	<conio.h>
 
-1717832653 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.h
+1717903863 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\impuestosvencidos.h
 	"../../arbolBinBusq/arbol.h"
-	"../../strValidators/strValidators.h"
 	<winsock2.h>
 	<windows.h>
 	<unistd.h>
@@ -98,7 +99,7 @@
 
 1717808596 c:\users\admin\n\unlam\ayed\source\ejercicios\ejercicio_3_5\exports.h
 
-1717834499 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\main.c
+1717902094 source:c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\main.c
 	"impuestosVencidos.h"
 	"lotePrueba/lotePrueba.h"
 	<winsock2.h>
@@ -137,4 +138,26 @@
 	<stdlib.h>
 
 1717831688 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\loteprueba\loteprueba.h
+
+1717904722 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\locmayorsup.c
+	"locMayorSup.h"
+
+1717979043 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\main.c
+	"locMayorSup.h"
+	"../../strValidators/strValidators.h"
+
+1717903307 c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\exports.h
+
+1717904413 c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\locmayorsup.h
+	"../../lista/lista.h"
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	<conio.h>
+
+1717904127 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\loteprueba\loteprueba.c
+	"lotePrueba.h"
+	"../locMayorSup.h"
+
+1717904086 c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\loteprueba\loteprueba.h
 

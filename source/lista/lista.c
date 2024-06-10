@@ -1,5 +1,8 @@
 #include "lista.h"
 
+#define RESERVAR_MEMORIA_NODO(nodo, tamNodo, info, tamInfo)( (   !( (nodo) = (tNodo *) malloc(tamNodo) )    \
+                                                              || !( (info) = malloc(tamInfo) )          )?  \
+                                                                     free(nodo), SIN_MEM : TODO_OK          )
 
 void crearLista(tLista *p)
 {
@@ -323,8 +326,6 @@ tLista *buscarDirClave(tLista *pl, void *clave, int (*comparar)(const void *, co
     return punteroNodo;
 }
 
-
-
 /** void eliminarElemLista(tLista *p, void *recurso, int (*comparar)(const void *, const void *))
 {
     tLista *anterior = p; // obs: ' pri ' siempre apuntará al inicio de la lista
@@ -368,3 +369,72 @@ int mapLista(const tLista *pl, int (*accion)(void *, void *), void *contexto)
 //{
 //
 //}
+
+int insertarOrdenadoDescConLimite(tLista *pl, const void *info, unsigned tamInfo, Comparar cmp, Acumular acm, unsigned limite)
+{
+    tNodo *nue;
+    unsigned cant = 0;
+    tNodo *menor = NULL,
+          *elim;
+    void *reubicarInfo;
+    tLista *pos = pl,
+           *excedente = NULL;
+    int res;
+    /// Inicio buscar posición
+    while(*pos && (cmp((*pos)->info, info) > 0) && (cant < limite))
+    {
+        cant++;
+        pos = &((*pos)->sig);
+    }
+    /// fin buscar posición
+    pl = pos; /// me guardo esto para recortar excedentes si es necesario
+
+    while(*pl && (cant < limite)) /// en caso de corresponder, retomo desde el úlrimo elemento para determinar si tengo excedentes
+    {
+        cant++;
+        excedente = pl;
+        menor = *pl;
+        pl = &((*pl)->sig);
+    }
+
+    if(*pos && !(res = cmp((*pos)->info, info))) /// verifico si el último elemento comparado no es el mismo que el nuevo dato
+    {
+        if(acm)
+            acm(&((*pos)->info), &((*pos)->tamInfo), info, tamInfo);
+        return CLA_DUP;
+    }
+    else if((cant >= limite) && (*pos == menor)) /// si no existe, puede pasar que estemos en una situación límite
+    {
+        if(!menor || cmp(menor->info, info) > 0) /// si el dato ingresante es menor al menor de mi colección
+            return NO_ENTRA;
+        else if((reubicarInfo = realloc(menor->info, tamInfo))) /// si no, corresponde reemplazar al menor, opto por reubicar la info para no complicarla
+        {
+            menor->info = reubicarInfo;
+            memcpy(menor->info, info, tamInfo);
+            menor->tamInfo = tamInfo;
+
+            return D_INS;
+        }
+        else
+            return SIN_MEM;
+    }
+
+    /// [Si hay margen para que entre, y se dan todas las condiciones]
+
+    if(RESERVAR_MEMORIA_NODO(nue, sizeof(tNodo), nue->info, tamInfo) != TODO_OK)
+        return SIN_MEM;
+
+    memcpy(nue->info, info, (nue->tamInfo = tamInfo));
+    nue->sig = *pos;
+    *pos = nue;
+
+    while((cant >= limite) && *excedente) /// recorto excedentes
+    {
+        elim = *excedente;
+        *excedente = elim->sig;
+        free(elim->info);
+        free(elim);
+    }
+
+    return TODO_OK;
+}

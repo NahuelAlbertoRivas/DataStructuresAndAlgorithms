@@ -14,6 +14,7 @@
 #include "../menuCustom/menuCustom.h"
 #include "../Ejercicios/Ejercicio_3_5/exports.h"
 #include "../Ejercicios/impuestosVencidos/exports.h"
+#include "../Ejercicios/localidadesMayorSuperficie/exports.h"
 
 int byo(void *);
 int mostrarOpciones(void *);

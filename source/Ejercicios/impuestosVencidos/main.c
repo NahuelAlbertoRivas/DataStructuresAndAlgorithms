@@ -15,7 +15,7 @@ int impVencidos(void *recursos)
 
     while(strcmpi(op, "f"))
     {
-        printf("¡Bienvenido! Por favor, selecciona la clave con que se va a ordenar el archivo \"deuda.txt\" [o bien ingresa \"F\" para abandonar el proceso]\n[A] DNI\n[B] DNI y patente\nOpcion: ");
+        printf("¡Bienvenida/o! Por favor, selecciona la clave con que se va a ordenar el archivo \"deuda.txt\" [o bien ingresa \"F\" para abandonar el proceso]\n[A] DNI\n[B] DNI y patente\nOpcion: ");
         fgets(op, TAM_OP, stdin);
         fflush(stdin);
         if(!strcmpi(op, "a") || !strcmpi(op, "b"))

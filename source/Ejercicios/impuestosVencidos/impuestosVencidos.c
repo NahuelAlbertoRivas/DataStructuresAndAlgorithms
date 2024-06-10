@@ -1,4 +1,5 @@
 #include "impuestosVencidos.h"
+#include "../../strValidators/strValidators.h"
 
 #define MENOR -1
 #define IGUAL 0
@@ -19,7 +20,8 @@ int procesarArchivoImpVencidos(const char *src_path, const char *op, const char 
 {
     FILE *pfImpuestos = fopen(src_path, "rb");
     tArbolBinBusq impuestos;
-    CompararImp cmp = (!strcmpi(op, "a"))? compararDNI : compararDNIyPatente;
+    CompararImp cmp;
+    MostrarImp mst;
     tImpuesto imp;
 
     if(!pfImpuestos)
@@ -27,14 +29,15 @@ int procesarArchivoImpVencidos(const char *src_path, const char *op, const char 
 
     crearArbolBinBusq(&impuestos);
 
+    definirFuncionesPorClave(op, &cmp, &mst);
+
     while(fread(&imp, sizeof(tImpuesto), 1, pfImpuestos))
     {
         if(recuperarRegValido(&imp) == BIEN)
             insertarArbolBinBusq(&impuestos, &imp, sizeof(imp), cmp, acumularDeuda);
     }
 
-    printf("\n%10s, %25s, %11s, %5s\n", "DNI", "Titular", "Patente", "Importe");
-    recorrerEnOrdenSimpleArbolBinBusq(&impuestos, stdout, mostrarImpuestos);
+    generarInforme(&impuestos, res_path, mst);
 
     eliminarArbol(&impuestos);
 
@@ -54,7 +57,7 @@ int recuperarRegValido(tImpuesto *imp)
     return BIEN;
 }
 
-char* buscarCharEnLineaVerificando(char *linea, char *dir, char caracter)
+char *buscarCharEnLineaVerificando(char *linea, char *dir, char caracter)
 {
     if((dir = strrchr(linea, caracter)))
         *dir = '\0';
@@ -114,7 +117,7 @@ int acumularDeuda(void **info, unsigned *tamInfo, const void *dato, unsigned tam
     return BIEN;
 }
 
-void mostrarImpuestos(void *info, unsigned tamInfo, void *recursos)
+void mostrarImpuestosDNI(void *info, unsigned tamInfo, void *recursos)
 {
     tImpuesto *imp;
     FILE *pf;
@@ -125,7 +128,21 @@ void mostrarImpuestos(void *info, unsigned tamInfo, void *recursos)
     imp = (tImpuesto *) info;
     pf = (FILE *)recursos;
 
-    fprintf(pf, "%10d, %25s, %11s, %5.2lf\n", imp->dni, imp->titular, imp->patente, imp->importe);
+    fprintf(pf, "%d|%.2lf\n", imp->dni, imp->importe);
+}
+
+void mostrarImpuestosDNIyPatente(void *info, unsigned tamInfo, void *recursos)
+{
+    tImpuesto *imp;
+    FILE *pf;
+
+    if(!info || !recursos)
+        return;
+
+    imp = (tImpuesto *) info;
+    pf = (FILE *)recursos;
+
+    fprintf(pf, "%d|%s|%.2lf\n", imp->dni, imp->patente, imp->importe);
 }
 
 byte validarImporte(double imp)
@@ -162,6 +179,50 @@ byte validarDNI(unsigned DNI)
 byte validarNroCuota(byte cta)
 {
     return ((cta > 0) && (cta < 7));
+}
+
+void generarInforme(tArbolBinBusq *impuestos, const char *path, MostrarImp mst)
+{
+    FILE *pfInf = fopen(path, "wt");
+    double total = 0;
+
+    if(!pfInf)
+        return;
+
+    recorrerEnOrdenSimpleArbolBinBusq(impuestos, pfInf, mst);
+    recorrerEnOrdenSimpleArbolBinBusq(impuestos, &total, acumularTotal); /// podría optimizarse y crear una fn. unificada que muestre y acumule el total de todas las cuotas vencidas
+
+    fprintf(pfInf, "%.2lf", total);
+
+    fclose(pfInf);
+}
+
+void acumularTotal(void *info, unsigned tamInfo, void *recurso)
+{
+    tImpuesto *imp;
+    double *total;
+
+    if(!info || !recurso)
+        return;
+
+    imp = (tImpuesto *)info;
+    total = (double *)recurso;
+
+    *total += imp->importe;
+}
+
+void definirFuncionesPorClave(const char *op, CompararImp *cmp, MostrarImp *mst)
+{
+    switch(ES_MINUSCULA(*op)?A_MAYUSC(*op):*op)
+    {
+        case 'A':
+            *cmp = compararDNI;
+            *mst = mostrarImpuestosDNI;
+            break;
+        case 'B':
+            *cmp = compararDNIyPatente;
+            *mst = mostrarImpuestosDNIyPatente;
+    }
 }
 
 /// ignorar

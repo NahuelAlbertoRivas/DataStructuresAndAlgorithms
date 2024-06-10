@@ -37,6 +37,9 @@
 #define BUSCADO 8080
 #endif // BUSCADO
 
+#define NO_ENTRA -32
+#define D_INS 32
+
 #ifndef minimo
 #define minimo(X, Y) ( (X) <= (Y)?(X):(Y) )
 #endif // minimo
@@ -55,6 +58,8 @@ typedef int (*Comparar)(const void *, const void *);
 typedef int (*Accion)(void *);
 
 typedef int (*accionManejoDatos)(void *, void *);
+
+typedef int (*Acumular)(void **, unsigned *, const void *, unsigned);
 
 void crearLista(tLista *p);
 
@@ -102,5 +107,7 @@ int accionarSobreElPrimero(tLista *pl, void *recurso, accionManejoDatos tarea);
 tLista *buscarDirClave(tLista *pl, void *clave, int (*comparar)(const void *, const void *));
 
 int mapLista(const tLista *p, int (*accion)(void *, void *), void *contexto);
+
+int insertarOrdenadoDescConLimite(tLista *pl, const void *info, unsigned tamInfo, Comparar cmp, Acumular acm, unsigned limite);
 
 #endif
