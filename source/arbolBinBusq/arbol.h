@@ -52,6 +52,8 @@ typedef int (*accionManejoDatos)(void *, void *);
 
 void crearArbolBinBusq(tArbolBinBusq *p);
 
+int arbolVacio(const tArbolBinBusq *pa);
+
 int insertarArbolBinBusq(tArbolBinBusq *p, const void *d, unsigned tam, int (*cmp)(const void *, const void *), int (*acumular)(void **, unsigned *, const void *, unsigned));
 
 int insertarRecArbolBinBusq(tArbolBinBusq *p, const void *d, unsigned tam, int (*cmp)(const void*, const void *), int (*acumular)(void **, unsigned *, const void *, unsigned));
@@ -59,6 +61,8 @@ int insertarRecArbolBinBusq(tArbolBinBusq *p, const void *d, unsigned tam, int (
 void recorrerEnOrdenArbolBinBusq(const tArbolBinBusq * p, void * params, void (*accion)(void *, unsigned, unsigned, void *));
 
 void recorrerEnOrdenInversoArbolBinBusq(const tArbolBinBusq * p, void * params, void (*accion)(void *, unsigned, unsigned, void *));
+
+void recorrerEnOrdenInversoSimpleArbolBinBusq(const tArbolBinBusq * p, void * params, void (*accion)(void *, unsigned, void *));
 
 void recorrerPreOrdenArbolBinBusq(const tArbolBinBusq * p, void * params, void (*accion)(void *, unsigned, unsigned, void *));
 

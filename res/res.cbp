@@ -45,6 +45,18 @@
 		<Unit filename="../source/Ejercicios/Ejercicio_3_5/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../source/Ejercicios/bookStringsClasifier/app/exports.h" />
+		<Unit filename="../source/Ejercicios/bookStringsClasifier/app/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/bookStringsClasifier/sharedFns/dev.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/bookStringsClasifier/sharedFns/dev.h" />
+		<Unit filename="../source/Ejercicios/bookStringsClasifier/testUnit/testUnit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/bookStringsClasifier/testUnit/testUnit.h" />
 		<Unit filename="../source/Ejercicios/impuestosVencidos/exports.h" />
 		<Unit filename="../source/Ejercicios/impuestosVencidos/impuestosVencidos.c">
 			<Option compilerVar="CC" />

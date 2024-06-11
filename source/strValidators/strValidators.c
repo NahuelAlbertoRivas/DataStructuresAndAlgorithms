@@ -3,10 +3,19 @@
 void cambiarStringAUpperCase(char *linea){
     if(ES_MINUSCULA(*linea)){
         *linea = A_MAYUSC(*linea);
-        return cambiarStringAUpperCase(++linea);
+        return cambiarStringAUpperCase(linea + 1);
     }
     else if(*linea)
-        return cambiarStringAUpperCase(++linea);
+        return cambiarStringAUpperCase(linea + 1);
+}
+
+void cambiarStringALowerCase(char *linea){
+    if(ES_MAYUSC(*linea)){
+        *linea = A_MINUSC(*linea);
+        return cambiarStringALowerCase(linea + 1);
+    }
+    else if(*linea)
+        return cambiarStringALowerCase(linea + 1);
 }
 
 void cambiarCaracterAUpperCase(char *linea){

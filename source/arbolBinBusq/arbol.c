@@ -7,6 +7,10 @@ void crearArbolBinBusq(tArbolBinBusq *p)
     *p = NULL;
 }
 
+int arbolVacio(const tArbolBinBusq *pa)
+{
+    return *pa == NULL;
+}
 
 /// Reservar Memoria Nodo
 #define reservarMemoriaNodo( X , Y , Z , W ) ( \
@@ -97,6 +101,18 @@ void recorrerEnOrdenInversoArbolBinBusq(const tArbolBinBusq * p, void * params,
                                         void (*accion)(void *, unsigned, unsigned, void *))
 {
     recorrerEnOrdenInversoRecArbolBinBusq(p, 0, params, accion);
+}
+
+void recorrerEnOrdenInversoSimpleArbolBinBusq(const tArbolBinBusq * p, void * params,
+                                        void (*accion)(void *, unsigned, void *))
+{
+    if(!(*p))
+        return;
+
+    recorrerEnOrdenInversoSimpleArbolBinBusq(&((*p)->der), params, accion);
+    accion((*p)->info, (*p)->tamInfo, params);
+    recorrerEnOrdenInversoSimpleArbolBinBusq(&((*p)->izq), params, accion);
+
 }
 
 void recorrerPreOrdenRecArbolBinBusq(const tArbolBinBusq * p, unsigned n, void * params,

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1717903351 source:c:\users\admin\n\unlam\ayed\res\main.c
+1718077186 source:c:\users\admin\n\unlam\ayed\res\main.c
 	"imports.h"
 
 1717806572 c:\users\admin\n\unlam\ayed\res\imports.h
@@ -8,7 +8,7 @@
 1717903616 source:c:\users\admin\n\unlam\ayed\source\menudisplay\disp.c
 	"disp.h"
 
-1717903532 c:\users\admin\n\unlam\ayed\source\menudisplay\disp.h
+1718077226 c:\users\admin\n\unlam\ayed\source\menudisplay\disp.h
 	<stdio.h>
 	<stdlib.h>
 	<winsock2.h>
@@ -22,6 +22,7 @@
 	"../Ejercicios/Ejercicio_3_5/exports.h"
 	"../Ejercicios/impuestosVencidos/exports.h"
 	"../Ejercicios/localidadesMayorSuperficie/exports.h"
+	"../Ejercicios/bookStringsClasifier/app/exports.h"
 
 1717978835 source:c:\users\admin\n\unlam\ayed\source\lista\lista.c
 	"lista.h"
@@ -44,7 +45,7 @@
 	<windows.h>
 	<conio.h>
 
-1707859080 c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.h
+1718079956 c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -60,10 +61,10 @@
 	<windows.h>
 	<unistd.h>
 
-1717819565 source:c:\users\admin\n\unlam\ayed\source\arbolbinbusq\arbol.c
+1718076048 source:c:\users\admin\n\unlam\ayed\source\arbolbinbusq\arbol.c
 	"arbol.h"
 
-1717819565 c:\users\admin\n\unlam\ayed\source\arbolbinbusq\arbol.h
+1718075955 c:\users\admin\n\unlam\ayed\source\arbolbinbusq\arbol.h
 	<string.h>
 	<stdlib.h>
 	<stdio.h>
@@ -109,7 +110,7 @@
 
 1717815129 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\exports.h
 
-1707859132 source:c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.c
+1717995996 source:c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.c
 	"strValidators.h"
 
 1707599642 source:c:\users\admin\n\unlam\ayed\source\colaenlistacircular\cola.c
@@ -156,7 +157,7 @@
 	<unistd.h>
 	<conio.h>
 
-1717994225 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\loteprueba\loteprueba.c
+1717994435 source:c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\loteprueba\loteprueba.c
 	"lotePrueba.h"
 	"../locMayorSup.h"
 	<winsock2.h>
@@ -166,4 +167,30 @@
 	<stdlib.h>
 
 1717989573 c:\users\admin\n\unlam\ayed\source\ejercicios\localidadesmayorsuperficie\loteprueba\loteprueba.h
+
+1718080128 source:c:\users\admin\n\unlam\ayed\source\ejercicios\bookstringsclasifier\sharedfns\dev.c
+	"dev.h"
+
+1718077051 c:\users\admin\n\unlam\ayed\source\ejercicios\bookstringsclasifier\sharedfns\dev.h
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<windows.h>
+	<string.h>
+	<conio.h>
+	"../../../arbolBinBusq/arbol.h"
+	"../../../strValidators/strValidators.h"
+
+1718077057 source:c:\users\admin\n\unlam\ayed\source\ejercicios\bookstringsclasifier\testunit\testunit.c
+	"testUnit.h"
+	<stdio.h>
+	<stdlib.h>
+
+1708640316 c:\users\admin\n\unlam\ayed\source\ejercicios\bookstringsclasifier\testunit\testunit.h
+	"../sharedFns/dev.h"
+
+1718076878 source:c:\users\admin\n\unlam\ayed\source\ejercicios\bookstringsclasifier\app\main.c
+	"../sharedFns/dev.h"
+
+1717995374 c:\users\admin\n\unlam\ayed\source\ejercicios\bookstringsclasifier\app\exports.h
 

@@ -48,12 +48,14 @@
 #define A_MAYUSC(x) (x) - 32
 #endif // A_MAYUSC
 
+#define A_MINUSC(x) ( (x) + 32 )
+
 #ifndef ES_NUMERO
 #define ES_NUMERO(x) ((x) >= 48 && (x) <= 57)
 #endif // ES_NUMERO
 
 #ifndef ES_LETRA
-#define ES_LETRA(x) (((x) >= 65 && (x) <= 90) || ((x) >= 97 && (x) <= 122))
+#define ES_LETRA(x) (((x) >= 65 && (x) <= 90) || ((x) >= 97 && (x) <= 122) || ( ((x) >= 129) && ((x) <= 165) ) || ( ((x) >= 192) && ((x) <= 253) ))
 #endif // ES_LETRA
 
 #ifndef ES_CARACTER_ESPECIAL
@@ -77,6 +79,8 @@
 #define SPACE_CHAR 32
 
 void cambiarStringAUpperCase(char *linea);
+
+void cambiarStringALowerCase(char *linea);
 
 void cambiarCaracterAUpperCase(char *linea);
 

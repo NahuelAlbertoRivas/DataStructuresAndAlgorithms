@@ -3,7 +3,7 @@
 
 int main(int argc, char *argv[])
 {
-    locMayorSup(NULL);
+    bookStringsClasifier(NULL);
 
 //    Accion *tareas = malloc(sizeof(Accion) * CANT_OPS);
 //    char bufferMenu[MAX_LINEA_MENU];
