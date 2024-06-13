@@ -94,4 +94,10 @@ char *eliminarLetrasPrefijo(char *palabra);
 
 void ingresaCaracterEspecial(char *linea, int *pos, int caracter);
 
+int reconocerCaracterEspecialValido(char *caracter);
+
+int reconocerCaracterSeparacion(const char *setSeparadores, unsigned longSet, char caracter);
+
+void formarPalabra(char *buffer, char *source, unsigned longitud);
+
 #endif

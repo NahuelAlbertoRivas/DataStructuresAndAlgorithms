@@ -1,6 +1,7 @@
 #include "dev.h"
 
 #define MAX_TAM_LINEAS 1024
+#define MINIMO(X,Y) ((X)<(Y)?(X):(Y))
 
 void menu(int mayorCnt, int menorCnt, tArbolBinBusq *palabras)
 {
@@ -8,9 +9,11 @@ void menu(int mayorCnt, int menorCnt, tArbolBinBusq *palabras)
 
     while(teclaIngresada != 'E')
     {
-        printf("A: ver lista asc\nB: ver lista desc\nC: mostrar palabra mayor rep\nD: mostrar palabra menor rep\nE: salir\n\nOpcion: ");
+        printf("A: ver lista en orden asc\nB: ver lista en orden desc\nC: mostrar palabra/s con mayor cantidad de repeticiones\nD: mostrar palabra/s con menor cantidad de repeticiones\nE: salir\n\nOpcion: ");
         teclaIngresada = getc(stdin);
         fflush(stdin);
+        if(ES_MINUSCULA(teclaIngresada))
+            teclaIngresada = A_MAYUSC(teclaIngresada);
         puts("");
         switch(teclaIngresada)
         {
@@ -31,13 +34,14 @@ void menu(int mayorCnt, int menorCnt, tArbolBinBusq *palabras)
             default:
                 printf("Ingrese una opción válida");
         }
-        printf("\n\nPresioná cualquier tecla para continuar");
-        getch();
+        printf("\n\nPresioná ' ENTER ' para continuar");
+        getc(stdin);
+        fflush(stdin);
         system("cls");
     }
 }
 
-int procesarLibro(char *path, tArbolBinBusq *palabras)
+int procesarLibro(char *path, tArbolBinBusq *palabras, const char *setSeparadores)
 {
     FILE *pfLibro;
     char linea[MAX_TAM_LINEAS],
@@ -56,12 +60,14 @@ int procesarLibro(char *path, tArbolBinBusq *palabras)
         if( (fin = strrchr(linea, '\n')) )
             *fin = '\0';
         ini = NULL;
-        fin = NULL;
-        while((longitud = proximaPalabra(linea, &ini, &fin)))
+        while((longitud = proximaPalabra(linea, &ini, &fin, setSeparadores)) || *ini)
         {
-            sprintf(regPalabra.palabra, "%*s", longitud, ini);
-            regPalabra.cantRep = 0;
-            insertarArbolBinBusq(palabras, &regPalabra, sizeof(regPalabra), compararRegsPalabra, acumularCantRepeticiones);
+            if(longitud)
+            {
+                formarPalabra(regPalabra.palabra, ini, longitud);
+                regPalabra.cantRep = 0;
+                insertarArbolBinBusq(palabras, &regPalabra, sizeof(regPalabra), compararRegsPalabra, acumularCantRepeticiones);
+            }
         }
     }
 
@@ -70,30 +76,32 @@ int procesarLibro(char *path, tArbolBinBusq *palabras)
     return TODO_OK;
 }
 
-int proximaPalabra(char *linea, char **ini, char **fin)
+int proximaPalabra(char *linea, char **ini, char **fin, const char *setSeparadores)
 {
     unsigned cant = 0;
-    const char *finRef = linea + strlen(linea);
 
     if(!(*linea))
         return cant;
 
-    if((*ini < linea) || (*ini > finRef) || !(*ini))
+    if(!(*ini))
         *ini = linea;
+    else
+        *ini = (*fin) + 1;
 
-    while(**ini && !ES_LETRA(**ini) && !ES_CARACTER_ESPECIAL(**ini)) /// delimito el inicio de la palabra
-        (*ini)++;
+    while(**ini && !ES_LETRA(**ini) && !ES_CARACTER_ESPECIAL(**ini) && reconocerCaracterSeparacion(setSeparadores, strlen(setSeparadores), **ini)) /// delimito el inicio de la palabra
+        (*ini) = (*ini) + 1;
 
     *fin = *ini; /// seteo a fin para que comience a identificar la palabra
 
-    while(**fin && (ES_LETRA(**fin) || ES_CARACTER_ESPECIAL(**fin) || (**fin != 32)))
+    while(**fin && (ES_LETRA(**fin)
+          || ES_CARACTER_ESPECIAL(**fin)
+          || !reconocerCaracterSeparacion(setSeparadores, strlen(setSeparadores), **fin)))
     {
         cant++;
-        (*fin)++;
+        (*fin) = (*fin) + 1;
     }
 
-    *ini = *fin; /// ini en la próxima iteración comenzará a recorrer desde la sig. posición a del fin de la palabra reconocida
-    (*fin)--; /// ajusto a fin nuevamente
+    (*fin) = (*fin) - 1; /// ajusto a fin nuevamente
 
     return cant;
 }
@@ -130,7 +138,7 @@ void buscarMenor(void *reg, unsigned tamInfo, void *recurso)
     int *cant = (int *)recurso;
     tRegistroPalabra *r = (tRegistroPalabra *)reg;
 
-    if(r && ( ( *cant == -1 ) || ( ( r->cantRep != 0 ) && ( r->cantRep < *cant ) ) ) )
+    if(r && ( r->cantRep != 0 ) && ( ( *cant == -1 ) || ( ( r->cantRep < *cant ) ) ) )
         *cant = r->cantRep;
 }
 

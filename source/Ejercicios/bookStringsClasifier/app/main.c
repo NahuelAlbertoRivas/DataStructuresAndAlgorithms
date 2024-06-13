@@ -4,14 +4,14 @@
 
 int bookStringsClasifier(void *recursos)
 {
-    setlocale(LC_ALL, "Spanish");
     int mayorCnt = 0,
         menorCnt = -1;
     tArbolBinBusq palabras;
+    char setSeparadores[] = " .,;!¡:    -_|¿?*+{}()\"\'~´`[]/\\ $#%&°<>»�«"; /// sería propio mandarlo por arg a main pero es un proyecto muy grande este
 
     crearArbolBinBusq(&palabras);
 
-    procesarLibro(SRC_PATH, &palabras);
+    procesarLibro(SRC_PATH, &palabras, setSeparadores);
 
     if(!arbolVacio(&palabras))
     {

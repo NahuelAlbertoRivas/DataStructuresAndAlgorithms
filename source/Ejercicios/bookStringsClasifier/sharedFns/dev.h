@@ -29,9 +29,9 @@ void menu(int mayorCnt, int menorCnt, tArbolBinBusq *pa);
 
 void mostrarSiCumple(void *reg, unsigned tamInfo, void *recurso);
 
-int procesarLibro(char *path, tArbolBinBusq *pa);
+int procesarLibro(char *path, tArbolBinBusq *pa, const char *setSeparadores);
 
-int proximaPalabra(char *linea, char **ini, char **fin);
+int proximaPalabra(char *linea, char **ini, char **fin, const char *setSeparadores);
 
 void buscarMayor(void *reg, unsigned tamInfo, void *recurso);
 

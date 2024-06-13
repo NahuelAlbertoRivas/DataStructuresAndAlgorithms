@@ -1,5 +1,11 @@
 #include "strValidators.h"
 
+#define NO_VAL 0
+#define VAL 1
+
+#include <winsock2.h>
+#include <windows.h>
+
 void cambiarStringAUpperCase(char *linea){
     if(ES_MINUSCULA(*linea)){
         *linea = A_MAYUSC(*linea);
@@ -35,7 +41,7 @@ int mismaLetra(const void *letra1, const void *letra2){
 
 char *eliminarEspaciosPrePalabra(char *palabra){
     if(*palabra && !ES_LETRA(*palabra) && !ES_CARACTER_ESPECIAL(*palabra)){
-        return eliminarEspaciosPrePalabra(++palabra);
+        return eliminarEspaciosPrePalabra(palabra + 1);
     }
     return palabra;
 }
@@ -43,14 +49,14 @@ char *eliminarEspaciosPrePalabra(char *palabra){
 char *eliminarEspaciosPosPalabra(char *palabra){
     if(*palabra && !ES_LETRA(*palabra) && !ES_CARACTER_ESPECIAL(*palabra)){
         (*palabra) = '\0';
-        return eliminarEspaciosPosPalabra(--palabra);
+        return eliminarEspaciosPosPalabra(palabra - 1);
     }
     return palabra;
 }
 
 char *eliminarLetrasPrefijo(char *palabra){
     if(*palabra && !ES_NUMERO(*palabra)){
-        return eliminarLetrasPrefijo(++palabra);
+        return eliminarLetrasPrefijo(palabra + 1);
     }
     return palabra;
 }
@@ -163,4 +169,70 @@ void ingresaCaracterEspecial(char *linea, int *pos, int caracter){
             return;
     }
     printf("%c", *(linea + ((*pos)++)));
+}
+
+/// la siguiente fn. se da debido a la imposibilidad de detectar el valor ASCII decimal exacto
+/// que interpreta cada computadora distinta sobre caracteres especiales (por eso la macro ES_CARACTER_ESPECIAL
+/// desarrollada en ' strValidators.h ' no responde bien en la mayoría de casos)
+//int reconocerCaracterEspecialValido(char *caracter)
+//{
+//    int res;
+//
+//    if((res = strcmpi(caracter, "í")))
+//        return VAL;
+//
+////    switch(caracter){
+////        case 'Ü':
+////            break;
+////        case 'ó':
+////            break;
+////        case 'ü':
+////            break;
+////        case 'é':
+////            break;
+////        case 'É':
+////            break;
+////        case 'á':
+////            break;
+////        case 'í':
+////            break;
+////        case 'ú':
+////            break;
+////        case 'ñ':
+////            break;
+////        case 'Ñ':
+////            break;
+////        case 'Á':
+////            break;
+////        case 'Í':
+////            break;
+////        case 'Ó':
+////            break;
+////        case 'Ú':
+////            break;
+////        default:
+////            return NO_VAL;
+////    }
+//
+//    return VAL;
+//}
+
+int reconocerCaracterSeparacion(const char *setSeparadores, unsigned longSet, char caracter)
+{
+    byte i;
+
+    for(i = 0; i < longSet; i++)
+        if(caracter == *(setSeparadores + i))
+            return VAL;
+
+    return NO_VAL;
+}
+
+void formarPalabra(char *buffer, char *source, unsigned longitud)
+{
+    unsigned i;
+
+    for(i = 0; i < longitud; i++)
+        *(buffer + i) = *(source + i);
+    *(buffer + i) = '\0';
 }
