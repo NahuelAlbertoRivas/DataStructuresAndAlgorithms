@@ -1,42 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ferreteria.h>
-#include <utilitarias.h>
+#include "../include/ferreteria.h"
+#include "../include/utilitarias.h"
 
 #define TODO_OK 1
 
 int resolucion_completa();
 int resolucion_simple();
 
-int main()
+int ferreteria(void *recursos)
 {
-    crear_archivo_productos_res(PATH_PRODUCTOS);
-    crear_archivo_pedidos_res(PATH_PEDIDOS);
-    generar_indice_productos_res(PATH_PRODUCTOS, PATH_INDICE_PRODUCTOS);
+    /// crear_archivo_productos_res(PATH_PRODUCTOS);
+    /// crear_archivo_pedidos_res(PATH_PEDIDOS);
+    /// generar_indice_productos_res(PATH_PRODUCTOS, PATH_INDICE_PRODUCTOS);
 
-    mostrar_archivo_productos_res(PATH_PRODUCTOS);
+    /** mostrar_archivo_productos_res(PATH_PRODUCTOS);
     printf("\n\n");
     mostrar_archivo_pedidos_res(PATH_PEDIDOS);
     printf("\n\n");
-    mostrar_indice_productos_res(PATH_INDICE_PRODUCTOS);
+    mostrar_indice_productos_res(PATH_INDICE_PRODUCTOS); **/
+
+    /// las anteriores líneas tienen fns. desarrolladas por Pezzola en la estática ' libBibliotecaParcial.a '
+    /// del proyecto, la cual excluí porque me generaba conflicto de prototipos. Básicamente, todas las fns. que tienen
+    /// el sufijo ' _res ' están en dicha biblioteca
 
     /// Descomente y utilice esta funcion si desea realizar la resolucion SIMPLE
     /// return resolucion_simple()
 
     /// Descomente y utilice esta funcion si desea realizar la resolucion COMPLETA
     return resolucion_completa();
-
-    puts("\n\n\n");
-
-    int procesar_pedidos_propia(const char * path_prods, const char * path_pedidos, const char * path_indice);
 }
-
-int resolucion_completa_propia()
-{
-
-    return TODO_OK;
-}
-
 
 int resolucion_completa()
 {
@@ -55,19 +48,19 @@ int resolucion_completa()
         Preste atencion a la salida ya resuelta (´procesar_pedidos_res´) e intente
         reproducirla desarrollando la funcion ´procesar_pedidos´
     */
-    procesar_pedidos_res(PATH_PRODUCTOS,PATH_PEDIDOS, PATH_INDICE_PRODUCTOS);
-    //procesar_pedidos(PATH_PRODUCTOS,PATH_PEDIDOS, PATH_INDICE_PRODUCTOS);
+    /// procesar_pedidos_res(PATH_PRODUCTOS,PATH_PEDIDOS, PATH_INDICE_PRODUCTOS);
+    procesar_pedidos(PATH_PRODUCTOS,PATH_PEDIDOS, PATH_INDICE_PRODUCTOS);
 
     printf("\n\n********  RESULTADOS  ***********\n");
 
-    mostrar_archivo_productos_res(PATH_PRODUCTOS);
+    /// mostrar_archivo_productos_res(PATH_PRODUCTOS); HACER
 
     printf("\n\n*********  REALIZADOS  ***********\n");
-    mostrar_archivo_texto_res("../Archivos/pedidos_realizados.txt");
+    /// mostrar_archivo_texto_res("../Archivos/pedidos_realizados.txt"); HACER
     printf("\n*********  FIN REALIZADOS  ***********\n\n");
 
     printf("\n\n*********  FALTANTES  ***********\n");
-    mostrar_archivo_texto_res("../Archivos/pedidos_faltantes.txt");
+    /// mostrar_archivo_texto_res("../Archivos/pedidos_faltantes.txt"); HACER
     printf("\n*********  FIN FALTANTES  ***********\n\n");
 
     return 0;
@@ -85,12 +78,12 @@ int resolucion_simple()
         Preste atencion a la salida ya resuelta (´procesar_pedidos_simple_res´) e intente
         reproducirla desarrollando la funcion ´procesar_pedidos_simple´
     */
-    procesar_pedidos_simple_res(PATH_PRODUCTOS,PATH_PEDIDOS, PATH_INDICE_PRODUCTOS);
+    /// procesar_pedidos_simple_res(PATH_PRODUCTOS,PATH_PEDIDOS, PATH_INDICE_PRODUCTOS);
     //procesar_pedidos_simple(PATH_PRODUCTOS,PATH_PEDIDOS, PATH_INDICE_PRODUCTOS);
 
     printf("\n\n********  RESULTADOS  ***********\n");
 
-    mostrar_archivo_productos_res(PATH_PRODUCTOS);
+    /// mostrar_archivo_productos_res(PATH_PRODUCTOS); HACER
 
     return 0;
 }

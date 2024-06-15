@@ -1,48 +1,50 @@
-#ifndef FERRETERIA_H_INCLUDED
-#define FERRETERIA_H_INCLUDED
+#ifndef FERRETERIA
+#define FERRETERIA
 
-#define PATH_PRODUCTOS "../Archivos/productos.dat"
-#define PATH_INDICE_PRODUCTOS "../Archivos/productos.idx"
-#define PATH_PEDIDOS "../Archivos/pedidos.txt"
+#define PATH_PRODUCTOS "../source/Ejercicios/ferreteria/Archivos/productos.dat"
+#define PATH_INDICE_PRODUCTOS "../source/Ejercicios/ferreteria/Archivos/productos.idx"
+#define PATH_PEDIDOS "../source/Ejercicios/ferreteria/Archivos/pedidos.txt"
 
-#include "../include/arbol.h"
-#include "../include/cola_dinamica.h"
+#include "../../../arbolBinBusq/arbol.h"
+#include "../../../colaDinamica/cola.h"
 #include <stdbool.h>
+#include <winsock2.h>
+#include <windows.h>
+#include <unistd.h>
 
 typedef struct {
-    char cod [10];
-    char descripcion[20];
+    char cod[11];
+    char descripcion[21];
     unsigned stock;
     float precio;
 } t_producto_stock;
 
 typedef struct {
-    unsigned cod_ped;
-    char cod_prod [11];
+    short unsigned cod_ped;
+    char cod_prod[11];
     unsigned cant;
-    bool faltante;
 } t_pedido;
 
 typedef struct {
-    char cod_prod [11];
+    char cod_prod[11];
     unsigned nro_reg;
 } t_reg_ind;
 
-void realizarInforme(tCola *Pedidos, tArbolBinBusq *Indices, FILE *pfProds);
+void imprimirDetalle(tCola *Pedidos, tArbolBinBusq *Indices, unsigned cantRegs, byte tipo, FILE *pfImpr, FILE* pfProds);
+void imprimirRealizado(tCola *Pedidos, tArbolBinBusq *Indices, unsigned cantRegs, FILE *pfImpr, FILE *pfProds);
+void imprimirFaltante(tCola *Pedidos, tArbolBinBusq *Indices, unsigned cantRegs, FILE *pfImpr, FILE *pfProds);
 
-int verificarStockPedido(tArbolBinBusq *Indices, t_reg_ind regIndice, t_pedido regPedido, FILE *pf);
+byte estadoStock(tArbolBinBusq *Indices, t_pedido regPedidoEntrante, FILE *pfProds);
 
 int compararIndices(const void *reg1, const void *reg2);
 
-void formatearLineaPedido(char *linea, t_pedido *regPedidoActual);
+byte formatearLineaPedido(char *linea, t_pedido *regPedidoActual);
 
-int cargarIndice(tArbolBinBusq *pa);
+int cargarIndice(tArbolBinBusq *pa, const char *path_indice);
 
 void actualizarIndices(tArbolBinBusq *pa);
 
 void escribirArchivoBin(void *info, unsigned tam, void *recurso);
-
-int procesar_pedidos_propia(const char * path_prods, const char * path_pedidos, const char * path_indice);
 
 int procesar_pedidos(const char * path_prods, const char * path_pedidos, const char * path_indice);
 int procesar_pedidos_res(const char * path_prods, const char * path_pedidos, const char * path_indice);
@@ -51,4 +53,4 @@ int procesar_pedidos_res(const char * path_prods, const char * path_pedidos, con
 int procesar_pedidos_simple(const char * path_prods, const char * path_pedidos, const char * path_indice);
 int procesar_pedidos_simple_res(const char * path_prods, const char * path_pedidos, const char * path_indice);
 
-#endif // FERRETERIA_H_INCLUDED
+#endif

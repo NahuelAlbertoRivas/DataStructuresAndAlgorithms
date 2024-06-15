@@ -100,4 +100,6 @@ int reconocerCaracterSeparacion(const char *setSeparadores, unsigned longSet, ch
 
 void formarPalabra(char *buffer, char *source, unsigned longitud);
 
+void recuperarSecuenciaCaracteres(const char *linea, char *buffer, unsigned cant, unsigned offset);
+
 #endif

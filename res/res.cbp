@@ -35,7 +35,6 @@
 		</Compiler>
 		<Linker>
 			<Add library="../source/menuCustom/libMenuCustom.a" />
-			<Add library="../source/strValidators/libStrValidators.a" />
 		</Linker>
 		<Unit filename="../source/Ejercicios/Ejercicio_3_5/exports.h" />
 		<Unit filename="../source/Ejercicios/Ejercicio_3_5/funciones.c">
@@ -57,6 +56,18 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../source/Ejercicios/bookStringsClasifier/testUnit/testUnit.h" />
+		<Unit filename="../source/Ejercicios/ferreteria/examen/exports.h" />
+		<Unit filename="../source/Ejercicios/ferreteria/examen/ferreteria.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/ferreteria/examen/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/ferreteria/examen/utilitarias.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/ferreteria/include/ferreteria.h" />
+		<Unit filename="../source/Ejercicios/ferreteria/include/utilitarias.h" />
 		<Unit filename="../source/Ejercicios/impuestosVencidos/exports.h" />
 		<Unit filename="../source/Ejercicios/impuestosVencidos/impuestosVencidos.c">
 			<Option compilerVar="CC" />

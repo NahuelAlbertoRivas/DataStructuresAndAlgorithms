@@ -1,10 +1,11 @@
 #include "strValidators.h"
+#include <winsock2.h>
+#include <windows.h>
 
 #define NO_VAL 0
 #define VAL 1
 
-#include <winsock2.h>
-#include <windows.h>
+#define MINIMO(x, y)( (x) < (y)? (x) : (y) )
 
 void cambiarStringAUpperCase(char *linea){
     if(ES_MINUSCULA(*linea)){
@@ -234,5 +235,17 @@ void formarPalabra(char *buffer, char *source, unsigned longitud)
 
     for(i = 0; i < longitud; i++)
         *(buffer + i) = *(source + i);
+    *(buffer + i) = '\0';
+}
+
+void recuperarSecuenciaCaracteres(const char *linea, char *buffer, unsigned cant, unsigned offset)
+{
+    unsigned i;
+
+    cant = MINIMO(cant, strlen(linea));
+
+    for(i = 0; i < cant; i++)
+        *(buffer + i) = *(linea + offset + i);
+
     *(buffer + i) = '\0';
 }

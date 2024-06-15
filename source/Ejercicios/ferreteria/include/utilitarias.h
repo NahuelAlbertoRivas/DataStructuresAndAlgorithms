@@ -1,7 +1,8 @@
-#ifndef UTILITARIAS_H_INCLUDED
-#define UTILITARIAS_H_INCLUDED
-#include<ferreteria.h>
-#include<stdio.h>
+#ifndef UTILITARIAS
+#define UTILITARIAS
+
+#include "ferreteria.h"
+#include <stdio.h>
 #define TAM_LINEA 50
 
 #define ES_LETRA(x) ( ( (x) >= 65 && (x) <= 90 ) || ( (x) >= 97 && (x) <= 122 ) )
@@ -18,8 +19,6 @@ void mostrar_archivo_texto_res(const char * path);
 void mostrar_indice_productos_res(const char * path);
 
 int cmp_ind_cod_prod_res(const void *v1, const void *v2);
-
-
 
 int leer_pedido_res(t_pedido * mov, FILE * arch_mov);
 int leer_pedido(t_pedido * mov, FILE * arch_mov);

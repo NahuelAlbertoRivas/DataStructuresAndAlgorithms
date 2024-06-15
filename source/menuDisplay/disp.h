@@ -16,6 +16,7 @@
 #include "../Ejercicios/impuestosVencidos/exports.h"
 #include "../Ejercicios/localidadesMayorSuperficie/exports.h"
 #include "../Ejercicios/bookStringsClasifier/app/exports.h"
+#include "../Ejercicios/ferreteria/examen/exports.h"
 
 int byo(void *);
 int mostrarOpciones(void *);
