@@ -116,34 +116,62 @@ void sacarNyMostrarCola(tColaCirc *pc, unsigned ce, FILE *pf)
     }
 }
 
+//int main()
+//{
+//    tPilaCirc pilaCirc;
+//    tColaCirc colaCirc;
+//    int vec[] = {1, 2, 3, 4, 5, 6};
+//    byte i;
+//
+//    crearPilaCirc(&pilaCirc);
+//    crearColaCirc(&colaCirc);
+//
+//    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
+//        ponerEnPilaCirc(&pilaCirc, vec + i, sizeof(int));
+//
+//    sacarNyMostrarPila(&pilaCirc, sizeof(vec) / sizeof(*vec), stdout);
+//    puts("Verificando si queda algo");
+//    sacarNyMostrarPila(&pilaCirc, sizeof(vec) / sizeof(*vec), stdout);
+//
+//    puts("_________________________________________");
+//
+//    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
+//        ponerEnColaCirc(&colaCirc, vec + i, sizeof(int));
+//
+//    sacarNyMostrarCola(&colaCirc, sizeof(vec) / sizeof(*vec), stdout);
+//    puts("Verificando si queda algo");
+//    sacarNyMostrarCola(&colaCirc, sizeof(vec) / sizeof(*vec), stdout);
+//
+//    vaciarColaCirc(&colaCirc);
+//    vaciarPilaCirc(&pilaCirc);
+//
+//    return 0;
+//}
+
+
 int main()
 {
-    tPilaCirc pilaCirc;
-    tColaCirc colaCirc;
+    tListaDoble listaDoble;
+
     int vec[] = {1, 2, 3, 4, 5, 6};
     byte i;
 
-    crearPilaCirc(&pilaCirc);
-    crearColaCirc(&colaCirc);
+    crearListaDoble(&listaDoble);
 
     for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
-        ponerEnPilaCirc(&pilaCirc, vec + i, sizeof(int));
+        insertarAlFinalListaDoble(&listaDoble, vec + i, sizeof(int));
 
-    sacarNyMostrarPila(&pilaCirc, sizeof(vec) / sizeof(*vec), stdout);
-    puts("Verificando si queda algo");
-    sacarNyMostrarPila(&pilaCirc, sizeof(vec) / sizeof(*vec), stdout);
+    puts("Derecha a izquierda");
+    mostrarDerAIzq(&listaDoble, mostrarEntero, stdout);
+    puts("Izquierda a derecha");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
 
-    puts("_________________________________________");
+    printf("Elementos que tenia la lista %d\n", vaciarListaDoble(&listaDoble));
 
-    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
-        ponerEnColaCirc(&colaCirc, vec + i, sizeof(int));
+    puts("Viendo si queda algo");
+    mostrarDerAIzq(&listaDoble, mostrarEntero, stdout);
 
-    sacarNyMostrarCola(&colaCirc, sizeof(vec) / sizeof(*vec), stdout);
-    puts("Verificando si queda algo");
-    sacarNyMostrarCola(&colaCirc, sizeof(vec) / sizeof(*vec), stdout);
-
-    vaciarColaCirc(&colaCirc);
-    vaciarPilaCirc(&pilaCirc);
+    vaciarListaDoble(&listaDoble);
 
     return 0;
 }

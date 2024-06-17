@@ -1,25 +1,30 @@
 #include "listaDoblemente.h"
 
-void crearListaDoble(tLista *pl)
+#define SIN_MEM 0
+
+#define RESERVAR_MEMORIA_NODO(nodo, tamNodo, info, tamInfo)( (   !( (nodo) = (tNodoListaDoble *) malloc(tamNodo) )    \
+                                                              || !( (info) = malloc(tamInfo) )                     )? \
+                                                                    free(nodo), SIN_MEM : TODO_OK                     )
+
+tNodoListaDoble *buscarNodoMenorClaveListaDoble(tListaDoble *pl, Comparacion cmp);
+
+void crearListaDoble(tListaDoble *pl)
 {
     *pl = NULL;
 }
 
-int listaVaciaDoble(const tLista *pl)
+int listaVaciaDoble(const tListaDoble *pl)
 {
     return (*pl) == NULL;
 }
 
-int insertarAlComienzo(tLista *pl, const void *info, unsigned cantBytes)
+int insertarAlComienzoListaDoble(tListaDoble *pl, const void *info, unsigned cantBytes)
 {
-    tNodo *act = *pl,
-           *nue;
+    tNodoListaDoble *act = *pl,
+                    *nue;
 
-    if(!(nue = (tNodo *) malloc(sizeof(tNodo))) || !(nue->info = malloc(cantBytes))) /// me fijo si tengo memoria
-    {
-        free(nue);
+    if(RESERVAR_MEMORIA_NODO(nue, sizeof(tNodoListaDoble), nue->info, cantBytes) != TODO_OK) /// me fijo si tengo memoria
         return SIN_MEM;
-    }
 
     if(act) /// encuentro la posición
         while(act->ant)
@@ -36,20 +41,34 @@ int insertarAlComienzo(tLista *pl, const void *info, unsigned cantBytes)
     return TODO_OK;
 }
 
-int insertarAlFinal(tLista *pl, const void *info, unsigned cantBytes)
+int eliminarPrimeroListaDoble(tListaDoble *pl)
 {
-    tNodo *act = *pl,
-           *nue;
+    tNodoListaDoble *act = *pl;
 
-    if(!(nue = (tNodo*) malloc(sizeof(tNodo))) || !(nue->info = malloc(cantBytes))) /// reservo memoria
-    {
-        free(nue);
-        return SIN_MEM;
-    }
+    if(!act)
+        return LISTA_VACIA;
+
+    while(act->ant)
+        act = act->ant;
+
+    free(act->info);
+    free(act);
+    act = NULL;
+
+    return TODO_OK;
+}
+
+int insertarAlFinalListaDoble(tListaDoble *pl, const void *info, unsigned cantBytes)
+{
+    tNodoListaDoble *act = *pl,
+                    *nue;
 
     if(act) /// si hay al menos dos nodos encuentro la posición del nuevo
         while(act->sig)
             act = act->sig;
+
+    if(RESERVAR_MEMORIA_NODO(nue, sizeof(tNodoListaDoble), nue->info, cantBytes) != TODO_OK)
+        return SIN_MEM;
 
     memcpy(nue->info, info, (nue->tamInfo = cantBytes)); /// copio info
 
@@ -62,9 +81,65 @@ int insertarAlFinal(tLista *pl, const void *info, unsigned cantBytes)
     return TODO_OK;
 }
 
-int mostrarIzqADer(const tLista *pl, Mostrar mostrar, FILE *pf)
+int eliminarUltimoListaDoble(tListaDoble *pl)
 {
-    tNodo *act = *pl;
+    tNodoListaDoble *act = *pl;
+
+    if(!act)
+        return LISTA_VACIA;
+
+    while(act->sig)
+        act = act->sig;
+
+    free(act->info);
+    free(act);
+    act = NULL;
+
+    return TODO_OK;
+}
+
+/// la siguiente fn. es muy parecida al filter, pero elimina una única existencia,
+/// la primera encontrada considerando desde el inicio de la lista
+int eliminarPorClaveListaDoble(tListaDoble *pl, void *dato, unsigned cantBytes, Comparacion cmp)
+{
+    tNodoListaDoble *act = *pl,
+                    *ant,
+                    *sig;
+
+    if(!act)
+        return LISTA_VACIA;
+
+    while(act->ant)
+        act = act->ant;
+
+    while(act)
+    {
+        if(!cmp(act->info, dato))
+        {
+            ant = act->ant;
+            sig = act->sig;
+            if(ant)
+                ant->sig = sig;
+            if(sig)
+                sig->ant = act->ant;
+            free(act->info);
+            free(act);
+            act = NULL;
+            ant?
+                (*pl = ant)
+              : (*pl = sig);
+            return TODO_OK;
+        }
+        else
+            act = act->sig;
+    }
+
+    return SIN_COINCIDENCIAS;
+}
+
+int mostrarIzqADer(const tListaDoble *pl, Mostrar mostrar, FILE *pf)
+{
+    tNodoListaDoble *act = *pl;
     int ce = 0;
 
     if(!act)
@@ -75,7 +150,7 @@ int mostrarIzqADer(const tLista *pl, Mostrar mostrar, FILE *pf)
 
     while(act)
     {
-        mostrar(&(act->info), pf);
+        mostrar(act->info, pf);
         act = act->sig;
         ce++;
     }
@@ -83,9 +158,9 @@ int mostrarIzqADer(const tLista *pl, Mostrar mostrar, FILE *pf)
     return ce;
 }
 
-int mostrarDerAIzq(const tLista *pl, Mostrar mostrar, FILE *pf)
+int mostrarDerAIzq(const tListaDoble *pl, Mostrar mostrar, FILE *pf)
 {
-    tNodo *act = *pl;
+    tNodoListaDoble *act = *pl;
     int ce = 0;
 
     if(!act)
@@ -96,7 +171,7 @@ int mostrarDerAIzq(const tLista *pl, Mostrar mostrar, FILE *pf)
 
     while(act)
     {
-        mostrar(&(act->info), pf);
+        mostrar(act->info, pf);
         act = act->ant;
         ce++;
     }
@@ -104,9 +179,65 @@ int mostrarDerAIzq(const tLista *pl, Mostrar mostrar, FILE *pf)
     return ce;
 }
 
-int mapListaDoble(tLista *pl, Accion tarea)
+tNodoListaDoble *buscarNodoMenorClaveListaDoble(tListaDoble *pl, Comparacion cmp)
 {
-    tNodo *act = *pl;
+    tNodoListaDoble *act = *pl,
+                    *ant,
+                    *menor;
+
+    if(!act)
+        return NULL;
+
+    menor = act;
+    act = act->sig;
+    ant = act->ant;
+
+    while(ant)
+    {
+        if(cmp(ant->info, menor->info) < 0)
+            menor = ant;
+        else
+            ant = ant->ant;
+    }
+    while(act)
+    {
+        if(cmp(act->info, menor) < 0)
+            menor = act;
+        else
+            act = act->sig;
+    }
+
+    return menor;
+}
+
+int ordenarListaDoble(tListaDoble *pl, Comparacion cmp)
+{
+    tNodoListaDoble *menor,
+                    *ant,
+                    *sig;
+
+    if(!(*pl))
+        return LISTA_VACIA;
+
+    while(*pl)
+    {
+        menor = buscarNodoMenorClaveListaDoble(pl, cmp);
+        ant = menor->ant;
+        sig = menor->sig;
+        if(ant)
+            ant->sig = sig;
+        if(sig)
+            sig->ant = ant;
+        *pl = menor;
+        pl = &((*pl)->sig);
+    }
+
+    return TODO_OK;
+}
+
+int mapListaDoble(tListaDoble *pl, Accion tarea)
+{
+    tNodoListaDoble *act = *pl;
     int ce = 0;
 
     if(!act)
@@ -125,11 +256,16 @@ int mapListaDoble(tLista *pl, Accion tarea)
     return ce;
 }
 
-int mapLista2(tLista *pl, Accion tarea)
+int mapListaDoble2(tListaDoble *pl, Accion tarea)
 {
-    tNodo *act = *pl,
-           *ant = act->ant;
+    tNodoListaDoble *act = *pl,
+                    *ant;
     int ce = 0;
+
+    if(!act)
+        return ce;
+
+    ant = act->ant;
 
     while(ant)
     {
@@ -147,14 +283,17 @@ int mapLista2(tLista *pl, Accion tarea)
     return ce;
 }
 
-int filterLista(tLista *pl, void *recurso, Comparacion cmp)
+int filterListaDoble(tListaDoble *pl, void *recurso, Comparacion cmp)
 {
-    tNodo *act = *pl,
-           *ant,
-           *sig;
+    tNodoListaDoble *act = *pl,
+                    *ant,
+                    *sig,
+                    *elim;
+
+    unsigned cantElim = 0;
 
     if(!act)
-        return LISTA_VACIA;
+        return cantElim;
 
     while(act->ant)
         act = act->ant;
@@ -163,67 +302,105 @@ int filterLista(tLista *pl, void *recurso, Comparacion cmp)
     {
         if(!cmp(act->info, recurso))
         {
-            sig = act->sig;
-            ant = act->ant;
+            elim = act;
+            act = elim->sig;
+            sig = elim->sig;
+            ant = elim->ant;
             if(ant)
                 ant->sig = sig;
             if(sig)
                 sig->ant = ant;
-            free(act->info);
-            free(act);
+            free(elim->info);
+            free(elim);
+            elim = NULL;
+            cantElim++;
         }
-        act = act->sig;
+        else
+            act = act->sig;
     }
 
-    return 1;
+    if(cantElim)
+        ant?
+            (*pl = ant)
+          : (*pl = sig);
+
+    return cantElim;
 }
 
-int filterLista2(tLista *pl, void *recurso, Comparacion cmp)
+int filterListaDoble2(tListaDoble *pl, void *recurso, Comparacion cmp)
 {
-    tNodo *actDer = *pl,            /// para recorrer desde el nodo actual hacia derecha
-           *actIzq = (*pl)->ant,    /// para recorrer desde el nodo anterior al actual hacia izquierda
-            *ant,
-            *sig;
+    tNodoListaDoble *actDer = *pl,        /// para recorrer desde el nodo actual hacia derecha
+                    *actIzq,              /// para recorrer desde el nodo anterior al actual hacia izquierda
+                    *ant,
+                    *sig,
+                    *elim;
+    unsigned cantElim = 0;
+
+    if(!actDer)
+         return cantElim;
+
+    actIzq = actDer->ant;
 
     while(actIzq)
     {
         if(!cmp(actIzq->info, recurso))
         {
-            sig = actIzq->sig;
-            ant = actIzq->ant;
+            elim = actIzq;
+            actIzq = actIzq->ant;
+            sig = elim->sig;
+            ant = elim->ant;
             if(ant)
                 ant->sig = sig;
             if(sig)
                 sig->ant = ant;
-            free(actIzq->info);
-            free(actIzq);
+            free(elim->info);
+            free(elim);
+            elim = NULL;
+            cantElim++;
         }
-        actIzq = actIzq->ant;
+        else
+            actIzq = actIzq->ant;
     }
+    if(cantElim)
+        ant?
+            (*pl = ant)
+          : (*pl = sig);
     while(actDer)
     {
         if(!cmp(actDer->info, recurso))
         {
-            sig = actDer->sig;
-            ant = actDer->ant;
+            elim = actDer;
+            actDer = elim->sig;
+            sig = elim->sig;
+            ant = elim->ant;
             if(ant)
                 ant->sig = sig;
             if(sig)
                 sig->ant = ant;
-            free(actDer->info);
-            free(actDer);
+            free(elim->info);
+            free(elim);
+            elim = NULL;
+            cantElim++;
         }
-        actDer = actDer->sig;
+        else
+            actDer = actDer->sig;
     }
 
-    return TODO_OK;
+    if(cantElim)
+        ant?
+            (*pl = ant)
+          : sig?
+                (*pl = sig)
+              : (*pl = *pl);
+
+    return cantElim;
 }
 
-int insertarEnOrden(tLista *pl, const void *info, unsigned cantBytes, Comparacion cmp, Acumular acm)
+int insertarEnOrdenListaDoble(tListaDoble *pl, const void *info, unsigned cantBytes, Comparacion cmp, Acumular acm)
 {
-    tNodo *act = *pl,
-           *sig,
-           *nue;
+    tNodoListaDoble *act = *pl,
+                    *sig,
+                    *nue;
 
     if(!act) /// me fijo si hay elementos en la lista así encontrar la posición para agrupar/insertar el nuevo o bien dejar el contexto preparado para la primer inserción
         sig = act;
@@ -244,11 +421,10 @@ int insertarEnOrden(tLista *pl, const void *info, unsigned cantBytes, Comparacio
         sig = act->sig;
     }
     /// si no es repetido, debo insertar ya que previamente encontramos dónde debe ubicarse (o bien será el primero)
-    if(!(nue = (tNodo *) malloc(sizeof(tNodo))) || !(nue->info = malloc(cantBytes)))
-    {
-        free(nue);
+
+   if(RESERVAR_MEMORIA_NODO(nue, sizeof(tNodoListaDoble), nue->info, cantBytes) != TODO_OK)
         return SIN_MEM;
-    }
+
     memcpy(nue->info, info, (nue->tamInfo = cantBytes));
     if(act)
         act->sig = nue;
@@ -262,12 +438,12 @@ int insertarEnOrden(tLista *pl, const void *info, unsigned cantBytes, Comparacio
     return TODO_OK;
 }
 
-int vaciarListaDoble(tLista *pl)
+int vaciarListaDoble(tListaDoble *pl)
 {
     int ce = 0;
-    tNodo *act = *pl,
-           *ant,
-            *elim;
+    tNodoListaDoble *act = *pl,
+                    *ant,
+                    *elim;
 
     if(!act)
         return LISTA_VACIA;
@@ -277,7 +453,7 @@ int vaciarListaDoble(tLista *pl)
     while(ant)
     {
         elim = ant;
-        ant = ant->ant;
+        ant = elim->ant;
         free(elim->info);
         free(elim);
         ce++;
@@ -285,7 +461,7 @@ int vaciarListaDoble(tLista *pl)
     while(act)
     {
         elim = act;
-        act = act->sig;
+        act = elim->sig;
         free(elim->info);
         free(elim);
         ce++;

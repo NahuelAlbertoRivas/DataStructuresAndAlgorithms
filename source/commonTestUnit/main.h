@@ -9,6 +9,7 @@
 
 #include "../pilaCircular/pila.h"
 #include "../colaCircular/cola.h"
+#include "../listaDoblemente/listaDoblemente.h"
 
 typedef byte (*Sacar)(void *, void *, unsigned);
 typedef void (*Mostrar)(const void *, FILE *);

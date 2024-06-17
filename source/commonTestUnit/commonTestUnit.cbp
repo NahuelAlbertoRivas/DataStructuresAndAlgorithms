@@ -35,6 +35,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../colaCircular/cola.h" />
+		<Unit filename="../listaDoblemente/listaDoblemente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../listaDoblemente/listaDoblemente.h" />
 		<Unit filename="../pilaCircular/pila.c">
 			<Option compilerVar="CC" />
 		</Unit>
