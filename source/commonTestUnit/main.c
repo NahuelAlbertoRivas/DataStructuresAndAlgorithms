@@ -92,6 +92,17 @@ void mostrarEntero(const void *info, FILE *pf)
     fprintf(pf, "%d\n", *((int *) info));
 }
 
+int compararEntero(const void *nro1, const void *nro2)
+{
+    if(!nro1)
+        return -1;
+
+    if(!nro2)
+        return 1;
+
+    return *((int *) nro1) - *((int *) nro2);
+}
+
 void sacarNyMostrarPila(tPilaCirc *pp, unsigned ce, FILE *pf)
 {
     int buff;
@@ -153,7 +164,8 @@ int main()
 {
     tListaDoble listaDoble;
 
-    int vec[] = {1, 2, 3, 4, 5, 6};
+    int vec[] = {25, 1, 2, 3, 4, 5, 6, 6, 7, 8, 7, 84, -1, 11, 88},
+        filtrar = 6;
     byte i;
 
     crearListaDoble(&listaDoble);
@@ -163,13 +175,43 @@ int main()
 
     puts("Derecha a izquierda");
     mostrarDerAIzq(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
     puts("Izquierda a derecha");
     mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-
-    printf("Elementos que tenia la lista %d\n", vaciarListaDoble(&listaDoble));
+    puts("_________________________________");
+    printf("Cantidad de elementos que tenia la lista: %d\n", vaciarListaDoble(&listaDoble));
 
     puts("Viendo si queda algo");
     mostrarDerAIzq(&listaDoble, mostrarEntero, stdout);
+
+    puts("_________________________________");
+
+    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
+        insertarAlFinalListaDoble(&listaDoble, vec + i, sizeof(int));
+
+    puts("Pruebas filter\n======= ======");
+    puts("Detalles de la coleccion:");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+
+    printf("\nSe busca filtrar el %d\n", filtrar);
+    printf("Cantidad de elementos hallados: %d\n", filterListaDoble(&listaDoble, &filtrar, compararEntero));
+    puts("Lista despues del filter: ");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    filtrar = 3;
+    printf("\nAhora se busca filtrar el %d\n", filtrar);
+    printf("Cantidad de elementos hallados %d\n", filterListaDoble(&listaDoble, &filtrar, compararEntero));
+    puts("Lista despues del filter: ");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    filtrar = 55;
+    printf("\nFiltrando un nro. que no existe en la coleccion, por ejemplo el %d\n", filtrar);
+    printf("Cantidad de elementos hallados %d\n", filterListaDoble(&listaDoble, &filtrar, compararEntero));
+    puts("Lista despues del filter: ");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    puts("Probando ordenar la lista");
+    ordenarListaDoble(&listaDoble, compararEntero);
+    puts("Finalmente, la lista ordenada queda:");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
 
     vaciarListaDoble(&listaDoble);
 

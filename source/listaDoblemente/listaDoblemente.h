@@ -52,6 +52,8 @@ int mostrarDerAIzq(const tListaDoble *pl, Mostrar mostrar, FILE *pf);
 
 int mostrarYVaciarListaDoble(tListaDoble *pl);
 
+int filterListaDoble(tListaDoble *pl, void *recurso, Comparacion cmp);
+
 int vaciarListaDoble(tListaDoble *pl);
 
 #endif // LISTADOBLEMENTE

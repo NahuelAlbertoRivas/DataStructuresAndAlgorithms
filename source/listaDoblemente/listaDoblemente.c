@@ -182,7 +182,6 @@ int mostrarDerAIzq(const tListaDoble *pl, Mostrar mostrar, FILE *pf)
 tNodoListaDoble *buscarNodoMenorClaveListaDoble(tListaDoble *pl, Comparacion cmp)
 {
     tNodoListaDoble *act = *pl,
-                    *ant,
                     *menor;
 
     if(!act)
@@ -190,21 +189,12 @@ tNodoListaDoble *buscarNodoMenorClaveListaDoble(tListaDoble *pl, Comparacion cmp
 
     menor = act;
     act = act->sig;
-    ant = act->ant;
 
-    while(ant)
-    {
-        if(cmp(ant->info, menor->info) < 0)
-            menor = ant;
-        else
-            ant = ant->ant;
-    }
     while(act)
     {
-        if(cmp(act->info, menor) < 0)
+        if(cmp(act->info, menor->info) < 0)
             menor = act;
-        else
-            act = act->sig;
+        act = act->sig;
     }
 
     return menor;
@@ -219,6 +209,9 @@ int ordenarListaDoble(tListaDoble *pl, Comparacion cmp)
     if(!(*pl))
         return LISTA_VACIA;
 
+    while((*pl)->ant)
+        pl = &((*pl)->ant);
+
     while(*pl)
     {
         menor = buscarNodoMenorClaveListaDoble(pl, cmp);
@@ -228,6 +221,12 @@ int ordenarListaDoble(tListaDoble *pl, Comparacion cmp)
             ant->sig = sig;
         if(sig)
             sig->ant = ant;
+        menor->sig = *pl;
+        if(*pl)
+        {
+            menor->ant = (*pl)->ant;
+            (*pl)->ant = menor;
+        }
         *pl = menor;
         pl = &((*pl)->sig);
     }
