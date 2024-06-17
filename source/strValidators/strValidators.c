@@ -249,3 +249,30 @@ void recuperarSecuenciaCaracteres(const char *linea, char *buffer, unsigned cant
 
     *(buffer + i) = '\0';
 }
+
+int recuperarSecuenciaParentizada(char *linea, char *buffer, unsigned tamBuffer, char *parParentizado)
+{
+    char *ini,
+         *fin;
+    unsigned i;
+
+    if(!(*linea) || !(*parParentizado) || !(ini = strchr(linea, *parParentizado)))
+        return NO_VAL;
+
+    ini++;
+
+    if(!(fin = strchr(ini, *(parParentizado + 1))))
+        return NO_VAL;
+
+    fin--;
+
+    for(i = 0; (i < tamBuffer) && (ini <= fin); i++)
+    {
+        *(buffer + i) = *ini;
+        ini++;
+    }
+
+    *(buffer + i) = '\0';
+
+    return i;
+}

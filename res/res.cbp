@@ -92,14 +92,42 @@
 		<Unit filename="../source/Ejercicios/localidadesMayorSuperficie/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="../source/Ejercicios/sumaMatrices/dev.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/sumaMatrices/dev.h" />
+		<Unit filename="../source/Ejercicios/sumaMatrices/exports.h" />
+		<Unit filename="../source/Ejercicios/sumaMatrices/sumaMatrices.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/sumaPolinomios/dev.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/Ejercicios/sumaPolinomios/dev.h" />
+		<Unit filename="../source/Ejercicios/sumaPolinomios/exports.h" />
+		<Unit filename="../source/Ejercicios/sumaPolinomios/sumaPolinomios.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="../source/arbolBinBusq/arbol.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../source/arbolBinBusq/arbol.h" />
+		<Unit filename="../source/colaCircular/cola.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/colaCircular/cola.h" />
 		<Unit filename="../source/colaDinamica/cola.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../source/colaDinamica/cola.h" />
+		<Unit filename="../source/listaCircular/lista.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/listaCircular/lista.h" />
+		<Unit filename="../source/listaDoblemente/listaDoblemente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/listaDoblemente/listaDoblemente.h" />
 		<Unit filename="../source/lista/lista.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -109,6 +137,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="../source/menuDisplay/disp.h" />
+		<Unit filename="../source/pilaCircular/pila.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../source/pilaCircular/pila.h" />
 		<Unit filename="../source/strValidators/strValidators.c">
 			<Option compilerVar="CC" />
 		</Unit>

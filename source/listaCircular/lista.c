@@ -6,17 +6,17 @@
 
 #define MINIMO(x, y)(((x)<(y))?(x):(y))
 
-void crearLista(tLista *pl)
+void crearListaCirc(tLista *pl)
 {
     *pl = NULL;
 }
 
-int listaVacia(const tLista *pl)
+int listaVaciaCirc(const tLista *pl)
 {
     return *pl == NULL;
 }
 
-int listaLlena(const tLista *pl, unsigned cantBytes)
+int listaLlenaCirc(const tLista *pl, unsigned cantBytes)
 {
     tNodo *nue;
 
@@ -29,30 +29,7 @@ int listaLlena(const tLista *pl, unsigned cantBytes)
     return !nue || !(nue->info);
 }
 
-int insertarEnPila(tLista *pp, const void *info, unsigned tamInfo)
-{
-    tNodo *nue;
-
-    if(RESERVAR_MEMORIA_NODO(nue, sizeof(tNodo), nue->info, tamInfo) != OK)
-        return SIN_MEM;
-
-    memcpy(nue->info, info, (nue->tamInfo = tamInfo));
-
-    if(*pp)
-    {
-        nue->sig = (*pp)->sig;
-        (*pp)->sig = nue;
-    }
-    else
-    {
-        *pp = nue;
-        nue->sig = *pp;
-    }
-
-    return OK;
-}
-
-int insertarEnCola(tLista *pc, const void *info, unsigned tamInfo)
+int insertarEnListaCirc(tLista *pc, const void *info, unsigned tamInfo)
 {
     tNodo *nue;
 
@@ -101,7 +78,7 @@ int eliminarSiguiente(tLista *pl, void *buffer, unsigned cantBytes)
     return OK;
 }
 
-void vaciarLista(tLista *pl)
+void vaciarListaCirc(tLista *pl)
 {
     while(*pl)
     {

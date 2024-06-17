@@ -1,11 +1,11 @@
 #include "listaDoblemente.h"
 
-void crearLista(tLista *pl)
+void crearListaDoble(tLista *pl)
 {
     *pl = NULL;
 }
 
-int listaVacia(const tLista *pl)
+int listaVaciaDoble(const tLista *pl)
 {
     return (*pl) == NULL;
 }
@@ -104,7 +104,7 @@ int mostrarDerAIzq(const tLista *pl, Mostrar mostrar, FILE *pf)
     return ce;
 }
 
-int mapLista(tLista *pl, Accion tarea)
+int mapListaDoble(tLista *pl, Accion tarea)
 {
     tNodo *act = *pl;
     int ce = 0;
@@ -262,7 +262,7 @@ int insertarEnOrden(tLista *pl, const void *info, unsigned cantBytes, Comparacio
     return TODO_OK;
 }
 
-int vaciarLista(tLista *pl)
+int vaciarListaDoble(tLista *pl)
 {
     int ce = 0;
     tNodo *act = *pl,

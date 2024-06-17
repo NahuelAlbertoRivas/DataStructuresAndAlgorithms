@@ -13,3 +13,31 @@
 	<stdio.h>
 	<math.h>
 
+1718588957 source:c:\users\admin\n\unlam\ayed\source\commontestunit\main.c
+	"main.h"
+
+1718588352 c:\users\admin\n\unlam\ayed\source\commontestunit\main.h
+	<winsock2.h>
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"../pilaCircular/pila.h"
+	"../colaCircular/cola.h"
+
+1718588677 source:c:\users\admin\n\unlam\ayed\source\colacircular\cola.c
+	"cola.h"
+
+1718588569 c:\users\admin\n\unlam\ayed\source\colacircular\cola.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1718588897 source:c:\users\admin\n\unlam\ayed\source\pilacircular\pila.c
+	"pila.h"
+
+1718588888 c:\users\admin\n\unlam\ayed\source\pilacircular\pila.h
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+

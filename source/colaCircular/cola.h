@@ -29,23 +29,21 @@
 #define SIN_MEM 2
 #endif // SIN_MEM
 
-typedef struct sNodo{
+typedef struct sNodoColaCirc{
     void *info;
     unsigned tamInfo;
-    struct sNodo *sig;
-}tNodo;
+    struct sNodoColaCirc *sig;
+} tNodoColaCirc;
 
-#ifndef tCola
-typedef tNodo *tCola;
-#endif // tCola
+typedef tNodoColaCirc *tColaCirc;
 
-void crearCola(tCola *pc);
-int colaLlena(const tCola *pc, unsigned cantBytes);
-int ponerEnCola(tCola *pc, const void *d, unsigned cantBytes);
-int verPrimeroCola(const tCola *pc, void *d, unsigned cantBytes);
-int pilaVacia(const tCola *pc);
-int sacarDeCola(tCola *pc, void *d, unsigned cantBytes);
-void vaciarCola(tCola *pc);
+void crearColaCirc(tColaCirc *pc);
+int colaLlenaCirc(const tColaCirc *pc, unsigned cantBytes);
+int ponerEnColaCirc(tColaCirc *pc, const void *d, unsigned cantBytes);
+int verPrimeroColaCirc(const tColaCirc *pc, void *d, unsigned cantBytes);
+int colaVaciaCirc(const tColaCirc *pc);
+int sacarDeColaCirc(tColaCirc *pc, void *d, unsigned cantBytes);
+void vaciarColaCirc(tColaCirc *pc);
 
 
 #endif

@@ -33,9 +33,9 @@ typedef int (*Acumular)(void **, unsigned *, const void *, unsigned);
 
 typedef void (*Mostrar)(const void *, FILE *);
 
-void crearLista(tLista *pl);
+void crearListaDoble(tLista *pl);
 
-int listaVacia(const tLista *pl);
+int listaVaciaDoble(const tLista *pl);
 
 int insertarAlComienzo(tLista *pl, const void *info, unsigned cantBytes);
 
@@ -55,6 +55,6 @@ int mostrarDerAIzq(const tLista *pl, Mostrar mostrar, FILE *pf);
 
 int mostrarYVaciarLista(tLista *pl);
 
-int vaciarLista(tLista *pl);
+int vaciarListaDoble(tLista *pl);
 
 #endif // LISTADOBLEMENTE

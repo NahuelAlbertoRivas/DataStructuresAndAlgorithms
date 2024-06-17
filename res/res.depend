@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1718417178 source:c:\users\admin\n\unlam\ayed\res\main.c
+1718508336 source:c:\users\admin\n\unlam\ayed\res\main.c
 	"imports.h"
 
 1717806572 c:\users\admin\n\unlam\ayed\res\imports.h
@@ -46,7 +46,7 @@
 	<windows.h>
 	<conio.h>
 
-1718346427 c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.h
+1718489844 c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.h
 	<stdio.h>
 	<string.h>
 	<stdlib.h>
@@ -71,7 +71,7 @@
 	<stdio.h>
 	<math.h>
 
-1707595783 source:c:\users\admin\n\unlam\ayed\source\coladinamica\cola.c
+1718583159 source:c:\users\admin\n\unlam\ayed\source\coladinamica\cola.c
 	"cola.h"
 	<stdio.h>
 	"../../productos/productos.h"
@@ -111,7 +111,7 @@
 
 1717815129 c:\users\admin\n\unlam\ayed\source\ejercicios\impuestosvencidos\exports.h
 
-1718346495 source:c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.c
+1718490133 source:c:\users\admin\n\unlam\ayed\source\strvalidators\strvalidators.c
 	"strValidators.h"
 	<winsock2.h>
 	<windows.h>
@@ -197,7 +197,7 @@
 
 1717995374 c:\users\admin\n\unlam\ayed\source\ejercicios\bookstringsclasifier\app\exports.h
 
-1718421158 source:c:\users\admin\n\unlam\ayed\source\ejercicios\ferreteria\examen\ferreteria.c
+1718477101 source:c:\users\admin\n\unlam\ayed\source\ejercicios\ferreteria\examen\ferreteria.c
 	"../include/ferreteria.h"
 	"../../../colaDinamica/cola.h"
 	"../include/utilitarias.h"
@@ -233,4 +233,63 @@
 	"../include/utilitarias.h"
 
 1718283741 c:\users\admin\n\unlam\ayed\source\ejercicios\ferreteria\examen\exports.h
+
+1718482205 source:c:\users\admin\n\unlam\ayed\source\ejercicios\sumapolinomios\dev.c
+	"dev.h"
+
+1718481804 source:c:\users\admin\n\unlam\ayed\source\ejercicios\sumapolinomios\sumapolinomios.c
+	"exports.h"
+	"dev.h"
+
+1718481259 c:\users\admin\n\unlam\ayed\source\ejercicios\sumapolinomios\exports.h
+
+1718482185 c:\users\admin\n\unlam\ayed\source\ejercicios\sumapolinomios\dev.h
+	"../../listaDoblemente/listaDoblemente.h"
+
+1718482149 c:\users\admin\n\unlam\ayed\source\listadoblemente\listadoblemente.h
+	<stdlib.h>
+	<winsock2.h>
+	<stdio.h>
+	<string.h>
+
+1718482149 source:c:\users\admin\n\unlam\ayed\source\listadoblemente\listadoblemente.c
+	"listaDoblemente.h"
+
+1718570002 source:c:\users\admin\n\unlam\ayed\source\ejercicios\sumamatrices\dev.c
+	"dev.h"
+	"../../strValidators/strValidators.h"
+
+1718488766 source:c:\users\admin\n\unlam\ayed\source\ejercicios\sumamatrices\sumamatrices.c
+	"dev.h"
+
+1718570002 c:\users\admin\n\unlam\ayed\source\ejercicios\sumamatrices\dev.h
+	"../../arbolBinBusq/arbol.h"
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+
+1718583062 source:c:\users\admin\n\unlam\ayed\source\pilacircular\pila.c
+	"pila.h"
+
+1718583018 c:\users\admin\n\unlam\ayed\source\pilacircular\pila.h
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1718583252 source:c:\users\admin\n\unlam\ayed\source\colacircular\cola.c
+	"cola.h"
+
+1718583288 c:\users\admin\n\unlam\ayed\source\colacircular\cola.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1718583511 source:c:\users\admin\n\unlam\ayed\source\listacircular\lista.c
+	"lista.h"
+
+1715196198 c:\users\admin\n\unlam\ayed\source\listacircular\lista.h
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
 

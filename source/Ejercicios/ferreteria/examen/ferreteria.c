@@ -116,8 +116,8 @@ byte formatearLineaPedido(char *linea, t_pedido *regPedido) /// esta fn. más ad
 
     return OK;
 }
-/// esta fn. podría tener varios códigos si se hiciera una clasificación de distintos rangos a considerar,
-/// por eso no retorna bool
+/// esta fn. podría tener varios códigos si se hiciera una
+/// clasificación de distintos rangos a considerar, por eso no retorna bool
 byte estadoStock(tArbolBinBusq *Indices, t_pedido regPedidoEntrante, FILE *pfProds)
 {
     t_producto_stock regProducto;

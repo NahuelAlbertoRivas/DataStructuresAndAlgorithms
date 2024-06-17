@@ -31,14 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="../arbolVerify/addFns.c">
+		<Unit filename="../colaCircular/cola.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../arbolVerify/addFns.h" />
-		<Unit filename="../arbolVerify/arbol.c">
+		<Unit filename="../colaCircular/cola.h" />
+		<Unit filename="../pilaCircular/pila.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="../arbolVerify/arbol.h" />
+		<Unit filename="../pilaCircular/pila.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>

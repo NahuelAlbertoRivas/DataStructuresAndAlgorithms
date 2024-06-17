@@ -102,4 +102,6 @@ void formarPalabra(char *buffer, char *source, unsigned longitud);
 
 void recuperarSecuenciaCaracteres(const char *linea, char *buffer, unsigned cant, unsigned offset);
 
+int recuperarSecuenciaParentizada(char *linea, char *buffer, unsigned tamBuffer, char *parParentizado);
+
 #endif
