@@ -20,7 +20,7 @@ typedef struct sNodoListaDoble{
 
 typedef tNodoListaDoble *tListaDoble;
 
-typedef int (*Accion)(void *);
+typedef int (*Accion)(void *, void *);
 
 typedef int (*Comparacion)(const void *, const void*);
 
@@ -34,15 +34,17 @@ int listaVaciaDoble(const tListaDoble *pl);
 
 int insertarAlComienzoListaDoble(tListaDoble *pl, const void *info, unsigned cantBytes);
 
+int eliminarUltimoListaDoble(tListaDoble *pl);
+
 int insertarAlFinalListaDoble(tListaDoble *pl, const void *info, unsigned cantBytes);
+
+int eliminarPrimeroListaDoble(tListaDoble *pl);
 
 int insertarEnOrdenListaDoble(tListaDoble *pl, const void *info, unsigned cantBytes, Comparacion cmp, Acumular acm);
 
 int ordenarListaDoble(tListaDoble *pl, Comparacion cmp);
 
 int listaLlenaDoble(const tListaDoble *pl, unsigned cantBytes);
-
-int eliminarUltimoListaDoble(tListaDoble *pl);
 
 int eliminarPorClaveListaDoble(tListaDoble *pl, void *dato, unsigned cantBytes, Comparacion cmp);
 
@@ -53,6 +55,10 @@ int mostrarDerAIzq(const tListaDoble *pl, Mostrar mostrar, FILE *pf);
 int mostrarYVaciarListaDoble(tListaDoble *pl);
 
 int filterListaDoble(tListaDoble *pl, void *recurso, Comparacion cmp);
+
+int mapListaDoble(tListaDoble *pl, void *recurso, Accion tarea);
+
+int mapListaDoble2(tListaDoble *pl, void *recurso, Accion tarea);
 
 int vaciarListaDoble(tListaDoble *pl);
 

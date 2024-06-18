@@ -84,6 +84,16 @@ unsigned short proximaPalabra(char *cadena, char **iniPalabra, char **finPalabra
 //    fclose(pf);
 //}
 
+int multiplicarEntero(void *info, void *recurso)
+{
+    if(!info || !recurso)
+        return NO_VAL;
+
+    *((int *) info) *= *((int *) recurso);
+
+    return TODO_OK;
+}
+
 void mostrarEntero(const void *info, FILE *pf)
 {
     if(!info || !pf)
@@ -218,9 +228,34 @@ int main()
     puts("Insercion de 0 en orden (sin duplicados)");
     for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
         insertarEnOrdenListaDoble(&listaDoble, vec + i, sizeof(int), compararEntero, NULL);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    puts("Eliminar primero");
+    eliminarPrimeroListaDoble(&listaDoble);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    puts("Eliminar ultimo");
+    eliminarUltimoListaDoble(&listaDoble);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    filtrar = 25;
+    printf("Eliminar por clave, se busca el nro: %d\n", filtrar);
+    eliminarPorClaveListaDoble(&listaDoble, &filtrar, sizeof(filtrar), compararEntero);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    puts("Mapeo multiplicando por 2 los nros. que quedan");
+    filtrar = 2;
+    mapListaDoble(&listaDoble, &filtrar, multiplicarEntero);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    insertarAlComienzoListaDoble(&listaDoble, &listaDoble, sizeof(filtrar));
+
     vaciarYmostrarIzqADer(&listaDoble, mostrarEntero, stdout);
 
-    vaciarListaDoble(&listaDoble);
+    puts("[Ultima prueba insertar al inicio y vaciar mostrando]");
+
+    if(vaciarListaDoble(&listaDoble))
+        puts("Si se ejecuta esta linea, algo falla con la anterior primitiva...");
 
     return 0;
 }

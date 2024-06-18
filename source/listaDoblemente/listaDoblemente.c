@@ -43,7 +43,8 @@ int insertarAlComienzoListaDoble(tListaDoble *pl, const void *info, unsigned can
 
 int eliminarPrimeroListaDoble(tListaDoble *pl)
 {
-    tNodoListaDoble *act = *pl;
+    tNodoListaDoble *act = *pl,
+                    *sig;
 
     if(!act)
         return LISTA_VACIA;
@@ -51,9 +52,16 @@ int eliminarPrimeroListaDoble(tListaDoble *pl)
     while(act->ant)
         act = act->ant;
 
+    sig = act->sig;
     free(act->info);
     free(act);
-    act = NULL;
+    if(sig)
+    {
+        sig->ant = NULL;
+        *pl = sig;
+    }
+    else
+        *pl = NULL;
 
     return TODO_OK;
 }
@@ -83,7 +91,8 @@ int insertarAlFinalListaDoble(tListaDoble *pl, const void *info, unsigned cantBy
 
 int eliminarUltimoListaDoble(tListaDoble *pl)
 {
-    tNodoListaDoble *act = *pl;
+    tNodoListaDoble *act = *pl,
+                    *ant;
 
     if(!act)
         return LISTA_VACIA;
@@ -91,9 +100,16 @@ int eliminarUltimoListaDoble(tListaDoble *pl)
     while(act->sig)
         act = act->sig;
 
+    ant = act->ant;
     free(act->info);
     free(act);
-    act = NULL;
+    if(ant)
+    {
+        ant->sig = NULL;
+        *pl = ant;
+    }
+    else
+        *pl = NULL;
 
     return TODO_OK;
 }
@@ -179,7 +195,7 @@ int mostrarDerAIzq(const tListaDoble *pl, Mostrar mostrar, FILE *pf)
     return ce;
 }
 
-int mapListaDoble(tListaDoble *pl, Accion tarea)
+int mapListaDoble(tListaDoble *pl, void *recurso, Accion tarea)
 {
     tNodoListaDoble *act = *pl;
     int ce = 0;
@@ -192,7 +208,7 @@ int mapListaDoble(tListaDoble *pl, Accion tarea)
 
     while(act)
     {
-        tarea(act->info);
+        tarea(act->info, recurso);
         act = act->sig;
         ce++;
     }
@@ -200,7 +216,7 @@ int mapListaDoble(tListaDoble *pl, Accion tarea)
     return ce;
 }
 
-int mapListaDoble2(tListaDoble *pl, Accion tarea)
+int mapListaDoble2(tListaDoble *pl, void *recurso, Accion tarea)
 {
     tNodoListaDoble *act = *pl,
                     *ant;
@@ -213,13 +229,13 @@ int mapListaDoble2(tListaDoble *pl, Accion tarea)
 
     while(ant)
     {
-        tarea(ant->info);
+        tarea(ant->info, recurso);
         ant = ant->ant;
         ce++;
     }
     while(act)
     {
-        tarea(act->info);
+        tarea(act->info, recurso);
         act = act->sig;
         ce++;
     }
@@ -390,7 +406,7 @@ int insertarEnOrdenListaDoble(tListaDoble *pl, const void *info, unsigned cantBy
         ant->sig = nue;
     if(sig)
         sig->ant = nue;
-    nue->ant = act;
+    nue->ant = ant;
     nue->sig = sig;
 
     *pl = nue;
