@@ -208,10 +208,17 @@ int main()
     puts("Lista despues del filter: ");
     mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
     puts("_________________________________");
+
     puts("Probando ordenar la lista");
     ordenarListaDoble(&listaDoble, compararEntero);
     puts("Finalmente, la lista ordenada queda:");
     mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    vaciarListaDoble(&listaDoble);
+    puts("_________________________________");
+    puts("Insercion de 0 en orden (sin duplicados)");
+    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
+        insertarEnOrdenListaDoble(&listaDoble, vec + i, sizeof(int), compararEntero, NULL);
+    vaciarYmostrarIzqADer(&listaDoble, mostrarEntero, stdout);
 
     vaciarListaDoble(&listaDoble);
 

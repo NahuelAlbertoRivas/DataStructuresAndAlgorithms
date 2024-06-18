@@ -56,4 +56,6 @@ int filterListaDoble(tListaDoble *pl, void *recurso, Comparacion cmp);
 
 int vaciarListaDoble(tListaDoble *pl);
 
+int vaciarYmostrarIzqADer(tListaDoble *pl, Mostrar mostrar, FILE *pf);
+
 #endif // LISTADOBLEMENTE

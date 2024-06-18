@@ -179,61 +179,6 @@ int mostrarDerAIzq(const tListaDoble *pl, Mostrar mostrar, FILE *pf)
     return ce;
 }
 
-tNodoListaDoble *buscarNodoMenorClaveListaDoble(tListaDoble *pl, Comparacion cmp)
-{
-    tNodoListaDoble *act = *pl,
-                    *menor;
-
-    if(!act)
-        return NULL;
-
-    menor = act;
-    act = act->sig;
-
-    while(act)
-    {
-        if(cmp(act->info, menor->info) < 0)
-            menor = act;
-        act = act->sig;
-    }
-
-    return menor;
-}
-
-int ordenarListaDoble(tListaDoble *pl, Comparacion cmp)
-{
-    tNodoListaDoble *menor,
-                    *ant,
-                    *sig;
-
-    if(!(*pl))
-        return LISTA_VACIA;
-
-    while((*pl)->ant)
-        pl = &((*pl)->ant);
-
-    while(*pl)
-    {
-        menor = buscarNodoMenorClaveListaDoble(pl, cmp);
-        ant = menor->ant;
-        sig = menor->sig;
-        if(ant)
-            ant->sig = sig;
-        if(sig)
-            sig->ant = ant;
-        menor->sig = *pl;
-        if(*pl)
-        {
-            menor->ant = (*pl)->ant;
-            (*pl)->ant = menor;
-        }
-        *pl = menor;
-        pl = &((*pl)->sig);
-    }
-
-    return TODO_OK;
-}
-
 int mapListaDoble(tListaDoble *pl, Accion tarea)
 {
     tNodoListaDoble *act = *pl;
@@ -398,11 +343,16 @@ int filterListaDoble2(tListaDoble *pl, void *recurso, Comparacion cmp)
 int insertarEnOrdenListaDoble(tListaDoble *pl, const void *info, unsigned cantBytes, Comparacion cmp, Acumular acm)
 {
     tNodoListaDoble *act = *pl,
+                    *ant,
                     *sig,
                     *nue;
+    int res;
 
     if(!act) /// me fijo si hay elementos en la lista así encontrar la posición para agrupar/insertar el nuevo o bien dejar el contexto preparado para la primer inserción
-        sig = act;
+    {
+        ant = NULL;
+        sig = NULL;
+    }
     else
     {
         while(act->sig && (cmp(act->info, info) < 0))
@@ -410,14 +360,25 @@ int insertarEnOrdenListaDoble(tListaDoble *pl, const void *info, unsigned cantBy
         while(act->ant && (cmp(act->info, info) > 0))
             act = act->ant;
 
-        if(!cmp(act->info, info))
+        res = cmp(act->info, info);
+
+        if(!res)
         {
             if(acm)
                 if(!acm(&((act)->info), &((act)->tamInfo), info, cantBytes))
                     return SIN_MEM;
             return CLA_DUP;
         }
-        sig = act->sig;
+        else if(res > 0)
+        {
+            ant = act->ant;
+            sig = act;
+        }
+        else
+        {
+            ant = act;
+            sig = act->sig;
+        }
     }
     /// si no es repetido, debo insertar ya que previamente encontramos dónde debe ubicarse (o bien será el primero)
 
@@ -425,8 +386,8 @@ int insertarEnOrdenListaDoble(tListaDoble *pl, const void *info, unsigned cantBy
         return SIN_MEM;
 
     memcpy(nue->info, info, (nue->tamInfo = cantBytes));
-    if(act)
-        act->sig = nue;
+    if(ant)
+        ant->sig = nue;
     if(sig)
         sig->ant = nue;
     nue->ant = act;
@@ -468,4 +429,91 @@ int vaciarListaDoble(tListaDoble *pl)
     *pl = NULL;
 
     return ce;
+}
+
+int vaciarYmostrarIzqADer(tListaDoble *pl, Mostrar mostrar, FILE *pf)
+{
+    tNodoListaDoble *act = *pl,
+                    *elim;
+    int ce = 0;
+
+    if(!act)
+        return LISTA_VACIA;
+
+    while(act->ant)
+        act = act->ant;
+
+    while(act)
+    {
+        mostrar(act->info, pf);
+        elim = act;
+        act = elim->sig;
+        free(elim->info);
+        free(elim);
+        ce++;
+    }
+    *pl = NULL;
+
+    return ce;
+}
+
+tNodoListaDoble *buscarNodoMenorClaveListaDoble(tListaDoble *pl, Comparacion cmp)
+{
+    tNodoListaDoble *act = *pl,
+                    *menor;
+
+    if(!act)
+        return NULL;
+
+    menor = act;
+    act = menor->sig;
+
+    while(act)
+    {
+        if(cmp(act->info, menor->info) < 0)
+            menor = act;
+        act = act->sig;
+    }
+
+    return menor;
+}
+
+int ordenarListaDoble(tListaDoble *pl, Comparacion cmp)
+{
+    tNodoListaDoble *ini = *pl,
+                    *menor,
+                    *ant,
+                    *sig;
+
+    if(!ini)
+        return LISTA_VACIA;
+
+    while(ini->ant)
+        ini = ini->ant;
+
+    while(ini)
+    {
+        menor = buscarNodoMenorClaveListaDoble(&ini, cmp);
+        if(menor != ini)
+        {
+            ant = menor->ant;
+            sig = menor->sig;
+            if(ant)
+                ant->sig = sig;
+            if(sig)
+                sig->ant = ant;
+            menor->sig = ini;
+            if(ini)
+            {
+                ant = ini->ant;
+                if(ant)
+                    ant->sig = menor;
+                menor->ant = ant;
+                ini->ant = menor;
+            }
+        }
+        ini = menor->sig;
+    }
+
+    return TODO_OK;
 }
