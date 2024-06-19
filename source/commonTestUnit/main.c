@@ -70,7 +70,7 @@ unsigned short proximaPalabra(char *cadena, char **iniPalabra, char **finPalabra
 //        num1,
 //        num2,
 //        num3;
-//    FILE *pf = fopen("sf.txt", "rt");
+//    FILE *pf = fopen("files/sf.txt", "rt");
 //
 //    if(!pf)
 //        return 1;
@@ -170,100 +170,130 @@ void sacarNyMostrarCola(tColaCirc *pc, unsigned ce, FILE *pf)
 //}
 
 
-//int main()
-//{
-//    tListaDoble listaDoble;
-//
-//    int vec[] = {25, 1, 2, 3, 4, 5, 6, 6, 7, 8, 7, 84, -1, 11, 88},
-//        filtrar = 6;
-//    byte i;
-//
-//    crearListaDoble(&listaDoble);
-//
-//    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
-//        insertarAlFinalListaDoble(&listaDoble, vec + i, sizeof(int));
-//
-//    puts("Derecha a izquierda");
-//    mostrarDerAIzq(&listaDoble, mostrarEntero, stdout);
-//    puts("_________________________________");
-//    puts("Izquierda a derecha");
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    puts("_________________________________");
-//    printf("Cantidad de elementos que tenia la lista: %d\n", vaciarListaDoble(&listaDoble));
-//
-//    puts("Viendo si queda algo");
-//    mostrarDerAIzq(&listaDoble, mostrarEntero, stdout);
-//
-//    puts("_________________________________");
-//
-//    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
-//        insertarAlFinalListaDoble(&listaDoble, vec + i, sizeof(int));
-//
-//    puts("Pruebas filter\n======= ======");
-//    puts("Detalles de la coleccion:");
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//
-//    printf("\nSe busca filtrar el %d\n", filtrar);
-//    printf("Cantidad de elementos hallados: %d\n", filterListaDoble(&listaDoble, &filtrar, compararEntero));
-//    puts("Lista despues del filter: ");
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    filtrar = 3;
-//    printf("\nAhora se busca filtrar el %d\n", filtrar);
-//    printf("Cantidad de elementos hallados %d\n", filterListaDoble(&listaDoble, &filtrar, compararEntero));
-//    puts("Lista despues del filter: ");
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    filtrar = 55;
-//    printf("\nFiltrando un nro. que no existe en la coleccion, por ejemplo el %d\n", filtrar);
-//    printf("Cantidad de elementos hallados %d\n", filterListaDoble(&listaDoble, &filtrar, compararEntero));
-//    puts("Lista despues del filter: ");
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    puts("_________________________________");
-//
-//    puts("Probando ordenar la lista");
-//    ordenarListaDoble(&listaDoble, compararEntero);
-//    puts("Finalmente, la lista ordenada queda:");
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    vaciarListaDoble(&listaDoble);
-//    puts("_________________________________");
-//    puts("Insercion de 0 en orden (sin duplicados)");
-//    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
-//        insertarEnOrdenListaDoble(&listaDoble, vec + i, sizeof(int), compararEntero, NULL);
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    puts("_________________________________");
-//    puts("Eliminar primero");
-//    eliminarPrimeroListaDoble(&listaDoble);
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    puts("_________________________________");
-//    puts("Eliminar ultimo");
-//    eliminarUltimoListaDoble(&listaDoble);
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    puts("_________________________________");
-//    filtrar = 25;
-//    printf("Eliminar por clave, se busca el nro: %d\n", filtrar);
-//    eliminarPorClaveListaDoble(&listaDoble, &filtrar, sizeof(filtrar), compararEntero);
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    puts("_________________________________");
-//    puts("Mapeo multiplicando por 2 los nros. que quedan");
-//    filtrar = 2;
-//    mapListaDoble(&listaDoble, &filtrar, multiplicarEntero);
-//    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//    puts("_________________________________");
-//    insertarAlComienzoListaDoble(&listaDoble, &listaDoble, sizeof(filtrar));
-//
-//    vaciarYmostrarIzqADer(&listaDoble, mostrarEntero, stdout);
-//
-//    puts("[Ultima prueba insertar al inicio y vaciar mostrando]");
-//
-//    if(vaciarListaDoble(&listaDoble))
-//        puts("Si se ejecuta esta linea, algo falla con la anterior primitiva...");
-//
-//    return 0;
-//}
-
-
 int main()
 {
+    tListaDoble listaDoble;
 
+    int vec[] = {25, 1, 2, 3, 4, 5, 6, 6, 7, 8, 7, 84, -1, 11, 88},
+        filtrar = 6;
+    byte i;
+
+    crearListaDoble(&listaDoble);
+
+    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
+        insertarAlFinalListaDoble(&listaDoble, vec + i, sizeof(int));
+
+    puts("Derecha a izquierda");
+    mostrarDerAIzq(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    puts("Izquierda a derecha");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    printf("Cantidad de elementos que tenia la lista: %d\n", vaciarListaDoble(&listaDoble));
+
+    puts("Viendo si queda algo");
+    mostrarDerAIzq(&listaDoble, mostrarEntero, stdout);
+
+    puts("_________________________________");
+
+    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
+        insertarAlFinalListaDoble(&listaDoble, vec + i, sizeof(int));
+
+    puts("Pruebas filter\n======= ======");
+    puts("Detalles de la coleccion:");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+
+    printf("\nSe busca filtrar el %d\n", filtrar);
+    printf("Cantidad de elementos hallados: %d\n", filterListaDoble(&listaDoble, &filtrar, compararEntero));
+    puts("Lista despues del filter: ");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    filtrar = 3;
+    printf("\nAhora se busca filtrar el %d\n", filtrar);
+    printf("Cantidad de elementos hallados %d\n", filterListaDoble(&listaDoble, &filtrar, compararEntero));
+    puts("Lista despues del filter: ");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    filtrar = 55;
+    printf("\nFiltrando un nro. que no existe en la coleccion, por ejemplo el %d\n", filtrar);
+    printf("Cantidad de elementos hallados %d\n", filterListaDoble(&listaDoble, &filtrar, compararEntero));
+    puts("Lista despues del filter: ");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+
+    puts("Probando ordenar la lista");
+    ordenarListaDoble(&listaDoble, compararEntero);
+    puts("Finalmente, la lista ordenada queda:");
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    vaciarListaDoble(&listaDoble);
+    puts("_________________________________");
+    puts("Insercion de 0 en orden (sin duplicados)");
+    for(i = 0; i < (sizeof(vec) / sizeof(*vec)); i++)
+        insertarEnOrdenListaDoble(&listaDoble, vec + i, sizeof(int), compararEntero, NULL);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    puts("Eliminar primero");
+    eliminarPrimeroListaDoble(&listaDoble);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    puts("Eliminar ultimo");
+    eliminarUltimoListaDoble(&listaDoble);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    filtrar = 25;
+    printf("Eliminar por clave, se busca el nro: %d\n", filtrar);
+    eliminarPorClaveListaDoble(&listaDoble, &filtrar, sizeof(filtrar), compararEntero);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    puts("Mapeo multiplicando por 2 los nros. que quedan");
+    filtrar = 2;
+    mapListaDoble(&listaDoble, &filtrar, multiplicarEntero);
+    mostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+    puts("_________________________________");
+    insertarAlComienzoListaDoble(&listaDoble, &listaDoble, sizeof(filtrar));
+
+    vaciarYmostrarIzqADer(&listaDoble, mostrarEntero, stdout);
+
+    puts("[Ultima prueba insertar al inicio y vaciar mostrando]");
+
+    if(vaciarListaDoble(&listaDoble))
+        puts("Si se ejecuta esta linea, algo falla con la anterior primitiva...");
 
     return 0;
 }
+
+
+//int main()
+//{
+//    char buffer[100],
+//         otro[100],
+//         mas[100];
+//    int num1;
+//    float num2;
+//    FILE *pf = fopen("files/parseoTest0.txt", "rt");
+//
+//    if(!pf)
+//        return 1;
+//
+//    while(fgets(buffer, 100, pf))
+//    {
+//        sscanf(buffer, "%8s|%d|%f|%15s", otro, &num1, &num2, mas);
+//        printf("%s %d %.2f %s\n", otro, num1, num2, mas);
+//    }
+//    puts("________________________________");
+//    fseek(pf, 0, SEEK_SET);
+//    while(fgets(buffer, 100, pf))
+//    {
+//        sscanf(buffer, "%[^|]|%d|%f|%[^\\0]", otro, &num1, &num2, mas);
+//        printf("%s %d %.2f %s", otro, num1, num2, mas);
+//    }
+//    puts("________________________________");
+//    fseek(pf, 0, SEEK_SET);
+//    while(fgets(buffer, 100, pf))
+//    {
+//        sscanf(buffer, "%[^|]|%d|%f|%[^|]", otro, &num1, &num2, mas);
+//        printf("%s %d %.2f %s", otro, num1, num2, mas);
+//    }
+//
+//    fclose(pf);
+//
+//    return 0;
+//}
