@@ -1,0 +1,29 @@
+# depslib dependency file v1.0
+1718807614 source:c:\users\admin\n\unlam\ayed\source\ejercicios\arbolylistacirctest\app\main.c
+	"imports.h"
+
+1718798124 c:\users\admin\n\unlam\ayed\source\ejercicios\arbolylistacirctest\app\imports.h
+	"../arbol/arbolBinBusq.h"
+	"../LSECircular/lista.h"
+
+1718798604 c:\users\admin\n\unlam\ayed\source\ejercicios\arbolylistacirctest\arbol\arbolbinbusq.h
+	"../commonData/commonData.h"
+
+1718798413 source:c:\users\admin\n\unlam\ayed\source\ejercicios\arbolylistacirctest\arbol\arbolbinbusq.c
+	"arbolBinBusq.h"
+
+1718807240 source:c:\users\admin\n\unlam\ayed\source\ejercicios\arbolylistacirctest\lsecircular\lista.c
+	"lista.h"
+
+1718807093 c:\users\admin\n\unlam\ayed\source\ejercicios\arbolylistacirctest\lsecircular\lista.h
+	"../commonData/commonData.h"
+
+1718803538 c:\users\admin\n\unlam\ayed\source\ejercicios\arbolylistacirctest\commondata\commondata.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<windows.h>
+	<conio.h>
+	<string.h>
+	<unistd.h>
+

@@ -78,6 +78,45 @@ int eliminarSiguiente(tLista *pl, void *buffer, unsigned cantBytes)
     return OK;
 }
 
+//void mostrarLSC(const tLista *pl, FILE *pf, Mostrar mst)
+//{
+//    tNodo *act;
+//
+//    if(!(*pl))
+//        return;
+//
+//    act = (*pl)->sig;
+//
+//    while(act != *pl)
+//    {
+//        mst(act->info, pf);
+//        act = act->sig;
+//    }
+//    mst(act->info, pf);
+//}
+//
+//int mapLSC(const tLista *pl, void *recurso, AccionarSimple tarea)
+//{
+//    tNodo *act;
+//    unsigned cant = 0;
+//
+//    if(!(*pl))
+//        return cant;
+//
+//    act = (*pl)->sig;
+//
+//    while(act != *pl)
+//    {
+//        tarea(act->info, recurso);
+//        act = act->sig;
+//        cant++;
+//    }
+//    tarea(act->info, recurso);
+//    cant++;
+//
+//    return cant;
+//}
+
 void vaciarListaCirc(tLista *pl)
 {
     while(*pl)
@@ -90,3 +129,39 @@ void vaciarListaCirc(tLista *pl)
         free(elim);
     }
 }
+
+//void vaciarLSC(tLista *pl)
+//{
+//    tNodo *elim;
+//
+//    while(*pl)
+//    {
+//        elim = (*pl)->sig;
+//        if(elim == *pl)
+//            *pl = NULL;
+//        else
+//            (*pl)->sig = elim->sig;
+//        free(elim->info);
+//        free(elim);
+//    }
+//}
+//
+//int vaciarLSC2(tLista *pl)
+//{
+//    tNodo *elim;
+//    unsigned cant = 0;
+//
+//    while(*pl)
+//    {
+//        elim = (*pl)->sig;
+//        if(elim == *pl)
+//            *pl = NULL;
+//        else
+//            (*pl)->sig = elim->sig;
+//        free(elim->info);
+//        free(elim);
+//        cant++;
+//    }
+//
+//    return cant;
+//}

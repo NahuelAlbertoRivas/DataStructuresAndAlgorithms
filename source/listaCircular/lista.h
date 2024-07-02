@@ -19,6 +19,8 @@ typedef struct sNodo
 
 typedef tNodo *tLista;
 
+typedef void (*AccionarSimple)(void *, void *);
 
+typedef void (*Mostrar)(const void *, FILE *);
 
 #endif

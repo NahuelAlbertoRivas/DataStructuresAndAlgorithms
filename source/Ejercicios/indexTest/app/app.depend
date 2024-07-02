@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1719673374 source:c:\users\admin\desktop\44364975_rivas_nahuel_alberto\env\dev\dev.c
+	"dev.h"
+
+1719675227 c:\users\admin\desktop\44364975_rivas_nahuel_alberto\env\dev\dev.h
+	"../commonData.h"
+
+1719873051 source:c:\users\admin\desktop\44364975_rivas_nahuel_alberto\packages\tda.c
+	"TDA.h"
+
+1719873051 c:\users\admin\desktop\44364975_rivas_nahuel_alberto\packages\tda.h
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<stdbool.h>
+
+1719673810 source:c:\users\admin\desktop\44364975_rivas_nahuel_alberto\unittest\unittest.c
+	"unitTest.h"
+
+1719675241 c:\users\admin\desktop\44364975_rivas_nahuel_alberto\unittest\unittest.h
+	"../env/commonData.h"
+
+1719673836 source:c:\users\admin\desktop\44364975_rivas_nahuel_alberto\env\filehandler\filehandler.c
+	"fileHandler.h"
+
+1719675227 c:\users\admin\desktop\44364975_rivas_nahuel_alberto\env\filehandler\filehandler.h
+	"../commonData.h"
+
+1719673861 source:c:\users\admin\desktop\44364975_rivas_nahuel_alberto\env\strhandler\strhandler.c
+	"strHandler.h"
+
+1719675465 c:\users\admin\desktop\44364975_rivas_nahuel_alberto\env\strhandler\strhandler.h
+	"../commonData.h"
+
+1719885382 source:c:\users\admin\desktop\44364975_rivas_nahuel_alberto\app\main.c
+	"imports.h"
+
+1719755938 c:\users\admin\desktop\44364975_rivas_nahuel_alberto\app\imports.h
+	"../env/commonData.h"
+	"../env/dev/dev.h"
+	"../env/menu/menu.h"
+	"../env/fileHandler/fileHandler.h"
+	"../env/strHandler/strHandler.h"
+	"../packages/TDA.h"
+
+1719673876 c:\users\admin\desktop\44364975_rivas_nahuel_alberto\env\commondata.h
+	<stdio.h>
+	<stdlib.h>
+	<winsock2.h>
+	<windows.h>
+	<conio.h>
+	<string.h>
+
+1719685703 source:c:\users\admin\desktop\44364975_rivas_nahuel_alberto\env\menu\menu.c
+	"menu.h"
+	"../strHandler/strHandler.h"
+
+1719675849 c:\users\admin\desktop\44364975_rivas_nahuel_alberto\env\menu\menu.h
+	"../commonData.h"
+
