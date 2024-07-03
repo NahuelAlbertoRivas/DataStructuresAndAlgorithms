@@ -26,11 +26,11 @@ int insertarAlComienzoListaDoble(tListaDoble *pl, const void *info, unsigned can
     if(RESERVAR_MEMORIA_NODO(nue, sizeof(tNodoListaDoble), nue->info, cantBytes) != TODO_OK) /// me fijo si tengo memoria
         return SIN_MEM;
 
-    if(act) /// encuentro la posición
+    if(act) /// encuentro la posiciÃ³n
         while(act->ant)
             act = act->ant;
 
-    memcpy(nue->info, info, (nue->tamInfo = cantBytes)); /// realizo la copia de la info. y asignación de su tamaño
+    memcpy(nue->info, info, (nue->tamInfo = cantBytes)); /// realizo la copia de la info. y asignaciÃ³n de su tamaÃ±o
 
     nue->ant = NULL; /// cableo
     nue->sig = act;
@@ -71,7 +71,7 @@ int insertarAlFinalListaDoble(tListaDoble *pl, const void *info, unsigned cantBy
     tNodoListaDoble *act = *pl,
                     *nue;
 
-    if(act) /// si hay al menos dos nodos encuentro la posición del nuevo
+    if(act) /// si hay al menos dos nodos encuentro la posiciÃ³n del nuevo
         while(act->sig)
             act = act->sig;
 
@@ -114,7 +114,7 @@ int eliminarUltimoListaDoble(tListaDoble *pl)
     return TODO_OK;
 }
 
-/// la siguiente fn. es muy parecida al filter, pero elimina una única existencia,
+/// la siguiente fn. es muy parecida al filter, pero elimina una Ãºnica existencia,
 /// la primera encontrada considerando desde el inicio de la lista
 int eliminarPorClaveListaDoble(tListaDoble *pl, void *dato, unsigned cantBytes, Comparacion cmp)
 {
@@ -364,7 +364,7 @@ int insertarEnOrdenListaDoble(tListaDoble *pl, const void *info, unsigned cantBy
                     *nue;
     int res;
 
-    if(!act) /// me fijo si hay elementos en la lista así encontrar la posición para agrupar/insertar el nuevo o bien dejar el contexto preparado para la primer inserción
+    if(!act) /// me fijo si hay elementos en la lista asÃ­ encontrar la posiciÃ³n para agrupar/insertar el nuevo o bien dejar el contexto preparado para la primer inserciÃ³n
     {
         ant = NULL;
         sig = NULL;
@@ -396,7 +396,7 @@ int insertarEnOrdenListaDoble(tListaDoble *pl, const void *info, unsigned cantBy
             sig = act->sig;
         }
     }
-    /// si no es repetido, debo insertar ya que previamente encontramos dónde debe ubicarse (o bien será el primero)
+    /// si no es repetido, debo insertar ya que previamente encontramos dÃ³nde debe ubicarse (o bien serÃ¡ el primero)
 
    if(RESERVAR_MEMORIA_NODO(nue, sizeof(tNodoListaDoble), nue->info, cantBytes) != TODO_OK)
         return SIN_MEM;
@@ -480,7 +480,10 @@ tNodoListaDoble *buscarNodoMenorClaveListaDoble(tListaDoble *pl, Comparacion cmp
 
     if(!act)
         return NULL;
-
+  
+    while(act->ant)
+      act = act->ant;
+  
     menor = act;
     act = menor->sig;
 
