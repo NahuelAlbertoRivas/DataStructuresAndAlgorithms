@@ -101,7 +101,7 @@ int leerDeArchivo(void *info, unsigned tamInfo, unsigned pos, void *fuente)
 
     fseek(pf, pos * tamInfo, SEEK_SET);
     fread(info, tamInfo, 1, pf);
-    fflush(stdin);
+    fflush(pf);
 
     return TODO_OK;
 }
@@ -153,6 +153,7 @@ void grabarEnArchivo(void *info, unsigned tamInfo, void *recurso)
 
     pf = (FILE *) recurso;
     fwrite(info, tamInfo, 1, pf);
+    fflush(pf);
 }
 
 int guardarArbolEnOrdenAchivoBin(tArbolBinBusq *pa, FILE *pf)

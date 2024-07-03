@@ -79,9 +79,9 @@ int sacarDeCola(tCola *pc, void *buffer, unsigned cantBytes)
     pc->pri = fin ? fin : pc->pri + ini;
 
     pc->tamDisp += tamAux + sizeof(unsigned);
-    tamAux = MINIMO(cantBytes, tamAux);
+    cantBytes = MINIMO(cantBytes, tamAux);
 
-    if((ini = MINIMO(tamAux, TAM_COLA - pc->pri)))
+    if((ini = MINIMO(cantBytes, TAM_COLA - pc->pri)))
         memcpy(buffer, pc->cola + pc->pri, ini);
     if((fin = tamAux - ini))
         memcpy(((char *)buffer) + ini, pc->cola, fin);

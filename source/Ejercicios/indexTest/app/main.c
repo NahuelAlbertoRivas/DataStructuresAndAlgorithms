@@ -112,6 +112,7 @@ void mostrarIndice(void *info, unsigned tamInfo, void *pf)
     ind = (tIndice *) info;
 
     fprintf((FILE *) pf, "%s, %d\n", ind->DNI, ind->pos);
+    fflush(pf);
 }
 
 void mostrarIndiceDetallado(void *info, unsigned tamInfo, unsigned n, void *pf)
@@ -124,6 +125,7 @@ void mostrarIndiceDetallado(void *info, unsigned tamInfo, unsigned n, void *pf)
     ind = (tIndice *) info;
 
     fprintf((FILE *) pf, "DNI (clave): %s, pos. en archivo principal: %d, nivel en arbol: %d\n", ind->DNI, ind->pos, n);
+    fflush(pf);
 }
 
 void subirDiezPerCent(void *info, unsigned tamInfo, void *recurso)
@@ -155,6 +157,8 @@ void subirDiezPerCent(void *info, unsigned tamInfo, void *recurso)
     fseek(pf, ind->pos * sizeof(tEmp), SEEK_SET);
 
     fwrite(&emp, sizeof(tEmp), 1, pf);
+
+    fflush(pf);
 }
 
 void bajarDiezPerCent(void *info, unsigned tamInfo, void *recurso)
@@ -186,6 +190,8 @@ void bajarDiezPerCent(void *info, unsigned tamInfo, void *recurso)
     fseek(pf, ind->pos * sizeof(tEmp), SEEK_SET);
 
     fwrite(&emp, sizeof(tEmp), 1, pf);
+
+    fflush(pf);
 }
 
 void mostrarRegEmp(void *info, unsigned tamInfo, void *recurso)
@@ -239,17 +245,23 @@ int main()
 
     crearArbol(&arbolNoAVL);
     crearArbol(&indiceEmpleados);
+
+
     crearIndice(&indiceEmpleados, PATH_LOTE);
     pfIdx = fopen(PATH_IDX, "wb");
     if(!pfIdx)
         return 0;
     guardarArbolEnOrdenAchivoBin(&indiceEmpleados, pfIdx);
+
+
     puts("En Orden\n== =====\n");
     recorrerEnOrdenArbolBinBusq(&indiceEmpleados, stdout, mostrarIndiceDetallado);
     puts("\nPre Orden\n=== =====\n");
     recorrerEnPreOrdenArbolBinBusq(&indiceEmpleados, stdout, mostrarIndiceDetallado);
     vaciarArbol(&indiceEmpleados);
+
     fclose(pfIdx);
+
     puts("__________________________________________________________________________________________\n\
     Ahora, cargamos desde datos ordenados y nos queda el arbol lo mas balanceado posible\n");
     pfIdx = fopen(PATH_IDX, "rb");
