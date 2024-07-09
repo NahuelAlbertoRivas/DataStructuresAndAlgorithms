@@ -1,0 +1,44 @@
+# depslib dependency file v1.0
+1720028723 source:c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\unittest\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	"../env/commonData.h"
+
+1720028962 c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\commondata.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+
+1720539115 source:c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\unittest\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	"../env/commonData.h"
+
+1720533591 c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\commondata.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	<time.h>
+

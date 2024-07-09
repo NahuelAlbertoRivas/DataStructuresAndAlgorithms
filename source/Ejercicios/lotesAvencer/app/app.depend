@@ -1,0 +1,115 @@
+# depslib dependency file v1.0
+1720040087 source:c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\dev\dev.c
+	"dev.h"
+
+1720026629 source:c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\filehandler\filehandler.c
+
+1720040087 source:c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\menu\menu.c
+	"menu.h"
+	"../dev/dev.h"
+
+1720026629 source:c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\strhandler\strhandler.c
+
+1720032764 source:c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\app\main.c
+	"imports.h"
+
+1720040162 c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\dev\dev.h
+	"../commonData.h"
+	"../fileHandler/fileHandler.h"
+	"../menu/menu.h"
+	"../strHandler/strHandler.h"
+	"../../TDA/TDA.h"
+
+1720039200 c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\commondata.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	<time.h>
+
+1720027219 c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\filehandler\filehandler.h
+	"../commonData.h"
+
+1720030439 c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\menu\menu.h
+	"../commonData.h"
+
+1720027219 c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\env\strhandler\strhandler.h
+	"../commonData.h"
+
+1720037632 c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\tda\tda.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+
+1720036558 source:c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\tda\tda.c
+	"TDA.h"
+
+1720030404 c:\users\laboratorios.unlmlab\desktop\44364975_rivas_nahuel_alberto\app\imports.h
+	"../env/dev/dev.h"
+
+1720026629 source:c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\filehandler\filehandler.c
+
+1720541539 source:c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\menu\menu.c
+	"menu.h"
+	"../dev/dev.h"
+
+1720536532 c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\menu\menu.h
+	"../commonData.h"
+
+1720533591 c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\commondata.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	<time.h>
+
+1720543417 c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\dev\dev.h
+	"../commonData.h"
+	"../fileHandler/fileHandler.h"
+	"../menu/menu.h"
+	"../strHandler/strHandler.h"
+	"../../TDA/TDA.h"
+
+1720027219 c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\filehandler\filehandler.h
+	"../commonData.h"
+
+1720027219 c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\strhandler\strhandler.h
+	"../commonData.h"
+
+1720542748 c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\tda\tda.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+
+1720026629 source:c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\strhandler\strhandler.c
+
+1720543165 source:c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\tda\tda.c
+	"TDA.h"
+
+1720528817 source:c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\app\main.c
+	"imports.h"
+
+1720030404 c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\app\imports.h
+	"../env/dev/dev.h"
+
+1720543394 source:c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\dev\dev.c
+	"dev.h"
+
