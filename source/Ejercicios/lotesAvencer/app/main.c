@@ -11,6 +11,7 @@ ELIJO UNA LISTA YA QUE ES UN ARCHIVO ORDENADO, SECUENCIAL
 
 int main(int argc, char *argv[])
 {
+    setlocale(LC_ALL, "Spanish");
     iniciarProceso(argv[1] , atoi(argv[2]));
 
     return 0;

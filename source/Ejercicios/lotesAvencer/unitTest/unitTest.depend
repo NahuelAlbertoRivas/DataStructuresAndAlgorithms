@@ -42,3 +42,25 @@
 	<unistd.h>
 	<time.h>
 
+1720543851 source:c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\unittest\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	"../env/commonData.h"
+
+1720533591 c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\commondata.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	<time.h>
+

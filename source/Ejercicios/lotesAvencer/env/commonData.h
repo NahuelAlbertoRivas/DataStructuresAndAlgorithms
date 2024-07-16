@@ -10,6 +10,7 @@
 #include <windows.h>
 #include <unistd.h>
 #include <time.h>
+#include <locale.h>
 
 #define PATH_PROD_OK "../files/prod_ok.dat"
 #define PATH_PROD_VENCE "../files/prod_a_vencer.txt"

@@ -94,6 +94,7 @@ void procesarStockDat(unsigned n, tFecha fAct)
                 regActual = regEntrante;
                 regLote.nro = regEntrante.nroLote;
                 regLote.vto = regEntrante.vto;
+                regLote.cantStock = regEntrante.cantStock;
                 cantProximosAvencer = ((compararFechasTipo(regEntrante.vto, fAct) <= 0)
                    || (compararFechaRefAmeses(regEntrante.vto, fAct) <= n))?
                         1
@@ -143,6 +144,8 @@ int dejarFechaMasActual(void **info, unsigned *tamInfo, const void *dato, unsign
 //       (nuevo->vto.dd < (*regOriginal)->vto.dd))
     if(compararFechas(*regOriginal, nuevo) > 0)
         (*regOriginal)->vto = nuevo->vto;
+
+    (*regOriginal)->cantStock += nuevo->cantStock;
 
     return TODO_OK;
 }

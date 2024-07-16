@@ -113,3 +113,61 @@
 1720543394 source:c:\users\admin\n\unlam\ayed comp\parciales a corregir\44364975_rivas_nahuel_alberto\env\dev\dev.c
 	"dev.h"
 
+1720026629 source:c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\filehandler\filehandler.c
+
+1720541539 source:c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\menu\menu.c
+	"menu.h"
+	"../dev/dev.h"
+
+1720536532 c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\menu\menu.h
+	"../commonData.h"
+
+1720643086 c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\commondata.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+	<time.h>
+	<locale.h>
+
+1720543417 c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\dev\dev.h
+	"../commonData.h"
+	"../fileHandler/fileHandler.h"
+	"../menu/menu.h"
+	"../strHandler/strHandler.h"
+	"../../TDA/TDA.h"
+
+1720027219 c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\filehandler\filehandler.h
+	"../commonData.h"
+
+1720027219 c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\strhandler\strhandler.h
+	"../commonData.h"
+
+1720542748 c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\tda\tda.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<conio.h>
+	<stdbool.h>
+	<winsock2.h>
+	<windows.h>
+	<unistd.h>
+
+1720026629 source:c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\strhandler\strhandler.c
+
+1720543165 source:c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\tda\tda.c
+	"TDA.h"
+
+1720643086 source:c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\app\main.c
+	"imports.h"
+
+1720030404 c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\app\imports.h
+	"../env/dev/dev.h"
+
+1720642951 source:c:\users\admin\n\unlam\ayed\source\ejercicios\lotesavencer\env\dev\dev.c
+	"dev.h"
+
